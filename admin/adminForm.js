@@ -34,17 +34,22 @@ function func() {
 
     if (!full) {
         document.getElementById("popup").innerHTML = "Заповніть, будь ласка, всі поля";
-        return;
+        showPopup();
+        return false;
     }
 
     fieldArr1.forEach(displayMessage);
 
-    if (document.getElementById("popup").innerHTML == "Заповніть, будь ласка, всі поля" || document.getElementById("popup").innerHTML == "Значення введені невірно") return;
+    if (document.getElementById("popup").innerHTML == "Заповніть, будь ласка, всі поля" || document.getElementById("popup").innerHTML == "Значення введені невірно")
+    {
+        showPopup();
+        return false;
+    }
     else document.getElementById('loading').style.visibility='visible';
 
 
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/distribution.cpp.o', false);
+    xhr.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/distribution.cpp.o', true);
     xhr.onreadystatechange = function() {
         if (xhr.readyState != 4) return;
         var message = xhr.responseText;
@@ -96,17 +101,22 @@ function func2() {
 
     if (!full) {
         document.getElementById("popup").innerHTML = "Заповніть, будь ласка, всі поля";
+        showPopup();
         return;
     }
 
     fieldArr1.forEach(displayMessage);
 
-    if (document.getElementById("popup").innerHTML == "Заповніть, будь ласка, всі поля" || document.getElementById("popup").innerHTML == "Значення введені невірно") return;
+    if (document.getElementById("popup").innerHTML == "Заповніть, будь ласка, всі поля" || document.getElementById("popup").innerHTML == "Значення введені невірно")
+    {
+        showPopup();
+        return false;
+    }
     else document.getElementById('loading').style.visibility='visible';
 
 
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/distribution.cpp.o', false);
+    xhr.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/distribution.cpp.o', true);
     xhr.onreadystatechange = function() {
         if (xhr.readyState != 4) return;
         var message = xhr.responseText;
