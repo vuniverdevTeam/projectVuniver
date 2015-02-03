@@ -149,3 +149,6 @@ form input[type=text]{
     background: ghostwhite;
     border: 2px dimgray outset;
 }
+.OK{
+    width: 75px;
+}

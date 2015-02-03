@@ -53,7 +53,7 @@
        	echo '<div id="popup-bg" style="visibility: hidden">
                			<div id="popup-window">
 							<div id="popup"></div>
-               				<input type="button" onclick="hidePopup()" value="OK"/>
+               				<input type="button" class="OK" onclick="hidePopup()" value="OK"/>
                			</div>
                		  </div>';
        	echo '<div id="content" style="padding-top:50px">';
