@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>input</title>
+    <link rel="stylesheet" type="text/css" href="../project ISM/test.css"/>
+    <script type="text/javascript" src = "../project ISM/jquery-1.7.1.min.js"></script>
+    <script type = "text/javascript">
+
+     $(document).ready(function () {
+    	size_li = $("#myList tr").size();
+    	x=11;
+	$('#myList tr').not(':lt('+x+')').hide();
+    	$('#loadMore').click(function () {
+        x= (x+10 <= size_li) ? x+10 : size_li;
+        $('#myList tr:lt('+x+')').show();
+   	 });
+    	$('#showLess').click(function () {
+        x=(x-10<0) ? 10 : x-10;
+        $('#myList tr').not(':lt('+x+')').hide();
+   	 });
+	
+	});
+    </script>
+</head>
+<body>
+<div id = "wrapper">
+    <table id = "myList">
+		<thead>
+		<tr>
+			<th>№</th>
+			<th class="budg">Бюджет</th>
+			<th class="contr">Контракт</th>
+			<th>Університет</th>
+			<th>Факульет</th>
+			<th>Спеціальність</th>
+		</tr>
+		</thead>
+<a name="start"></a>
+	~H~ 
+    </table>
+		<a name="end"></a>
+    <div class="knopka">
+        <a href = "#start" class="knopka" style="float:left;">Вгору</a><br/>
+        <a  id = "loadMore" class="knopka" style="float:left; clear:both;">Відобразити ще 10</a><br/>
+				<a class="knopka" href="../project ISM/input.html" style="float:left; clear:both;">Повернутись на сторінку введення</a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+body{
+	text-align:center;
+}
+#wrapper
+{
+    width: 100%;
+}
+
+form
+{
+    text-align: center;
+}
+
+#first
+{
+    border: 1px solid;
+    height: 200px;
+    width: 30%;
+    padding-top: 50px;
+}
+
+#second
+{
+    border: 1px solid;
+    height: 200px;
+    width: 30%;
+    padding-top: 50px;
+}
+.button
+{
+    color: #05002b;
+    border: 2px outset dimgray;
+    margin: 0 auto;
+    background-color: #afafaf;
+    padding: 7px;
+}
+.button:hover{
+	box-shadow: 0px 0px 5px #667391;
+}
+.button:hover:active{
+	border-style: inset;
+}
+.inline{
+    display: inline-block;
+}
+.cell{
+    display: table-cell;
+}

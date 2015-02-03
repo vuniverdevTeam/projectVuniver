@@ -1,0 +1,86 @@
+body
+{
+    margin: 0;
+}
+
+#wrapper
+{
+    width: 100%;
+    padding-bottom: 1px;
+}
+
+form
+{
+    text-align: center;
+}
+
+#first
+{
+    border: 1px solid;
+    height: 400px;
+    width: 30%;
+    float: left;
+    padding-top: 50px;
+    padding-right: 1px;
+}
+
+
+#second
+{
+    border: 1px solid;
+    height: 400px;
+    width: 30%;
+    float: right;
+    padding-top: 50px;
+}
+
+
+
+
+#header {
+    height: 50px;
+    background-color: #e7ecff;
+    border-bottom: 3px solid #667391;
+}
+#title {
+    padding-top: 5px;
+    margin-left: 5px;
+    font-size: xx-large;
+    color: #05002b;
+}
+
+.button-calculate
+{
+    margin: 0 auto;
+
+
+}
+
+input[type=submit], input[type=button], #button-1, #button-2{
+    border-style: none;
+    margin: 0 auto;
+    background-color: #afafaf;
+    padding: 7px;
+    width: 150px;
+    height: 40px;
+}
+
+#button-2
+{
+    margin-top: 15px;
+}
+input[type=submit]:hover, input[type=button]:hover, #button-1:hover, #button-2:hover{
+    color: #05002b;
+    box-shadow: 0px 0px 5px #667391;
+}
+input[type=text], input[type=password] {
+    padding: 5px;
+    margin: 10px 0;
+    border-color: black;
+}
+
+#back
+{
+    clear: both;
+    margin-left: 1px;
+}

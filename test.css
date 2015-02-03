@@ -1,0 +1,86 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+
+#wrapper
+{
+    display: table;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    border: 1px solid;
+}
+
+#myList
+{
+        list-style-type: none;
+		/*opacity: 0.7;*/
+		/*border-collapse: collapse;*/
+		margin-bottom: 10px;
+}
+td,th
+{
+		text-align: left;
+    vertical-align: middle;
+ 		padding: 0 4px;
+		text-indent: 2px;
+        border: 1px solid;
+}
+
+.button
+{
+    text-decoration: none;
+    margin-left: 46%;
+}
+
+table
+{
+    margin: 0 auto;
+    width: 100%;
+}
+
+.numb
+{
+    width: 5%;
+}
+
+.contr
+{
+    width: 8%;
+}
+
+.budg
+{
+    width: 8%;
+}
+
+h4{
+		text-align: center;
+}
+div.knopka{
+	text-align: center;
+}
+a.knopka{
+    margin: 2px;
+    color: #fff; /* цвет текста */
+		width: 200px;
+		display: inline-block;
+    text-decoration: none; /* убирать подчёркивание у ссылок */
+    user-select: none; /* убирать выделение текста */
+    -moz-user-select: -moz-none;
+    -webkit-user-select: none;
+    user-select: none;
+    background-color: rgba(48, 95, 24, 0.8); /* фон кнопки */
+    padding: 4px 4px; /* отступ от текста */
+    outline: none; /* убирать контур в Mozilla */
+}
+a.knopka:hover {
+    padding: 7px 7px;
+    cursor: pointer;
+} /* при наведении курсора мышки */
+a.knopka:active {
+    background-color: #999;
+} /* при нажатии */

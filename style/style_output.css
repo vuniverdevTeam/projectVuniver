@@ -1,0 +1,31 @@
+.text_out{
+    margin: 15px;
+    color: black; /* цвет текста */
+    text-decoration: none; /* убирать подчёркивание у ссылок */
+    user-select: none; /* убирать выделение текста */
+    background-color: #ffffff; /* фон кнопки */
+    padding: 1px 1px; /* отступ от текста */
+    outline: none; /* убирать контур в Mozilla */
+}
+h1{
+    text-align: center;
+    font-size: 190%;
+    color: #5840c4;
+}
+h2{
+    text-align: center;
+    font-size: 160%;
+    color: #332677;
+}
+.inf{
+    float: left;
+    margin-left: 10%;
+}
+a.knopka{
+    float: left;
+}
+#years{
+    border: solid 1px;
+}
+
+

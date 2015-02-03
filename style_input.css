@@ -1,0 +1,303 @@
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance:textfield;
+}
+#calculation{
+    background: url("image/left-2.jpg") repeat;
+    width: auto;
+    height: 80%;
+    float: left;
+    padding-left: 5px;
+}
+.Point{
+    width: auto;
+    background-color: transparent;
+}
+.Point #Label{
+    font-size: 14px;
+    float: left;
+    text-align: left;
+    text-decoration: underline;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+.Point #Label:hover{
+    color: #999999;
+}
+.Point label:checked{
+
+}
+.univer{
+    width: 400px;
+    background-color: transparent;
+}
+input[type="number"]{
+    border: 1px solid #999999;
+    font-size: 14px;
+    width: 100px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    margin-left: 1px;
+    background-color: #eee;
+    padding: 2px;
+    background-image: -moz-linear-gradient(#fff,#eee);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
+    background-image: -webkit-linear-gradient(#fff, #eee);
+    background-image: -o-linear-gradient(#fff, #eee);
+    background-image: -ms-linear-gradient(#fff, #eee);
+    background-image: linear-gradient(#fff, #eee);
+
+}
+td[colspan="2"]{
+    color: rgba(225, 0, 16, 0.95);
+		font-size: 68%;
+}
+.Point p{
+    color: rgba(225, 0, 16, 0.95);
+		font-size: 68%;
+}
+select{
+    font-size: 14px;
+}
+.Point select{
+    width: 225px;
+}
+.top-error{
+    color: rgba(225, 0, 16, 0.95);
+		font-size: 80%;
+		line-height: 1.4 em;
+		height: 1.4 em;
+		clear: both;
+		margin: 0px 0 10px 0;
+}
+#block-test .top-error{
+	height: 30px;
+}
+#block-enter .top-error{
+	float: right;
+}
+.input-error{
+		clear: left;
+		clear: right;
+    outline: red solid 1px;
+}
+#button-calculate{
+    font-size: 14px;
+    float: right;
+    margin: 10px;
+    padding: 8px;
+    margin-right: 2px;
+    border-radius: 7px;
+    background-color: #eee;
+    box-shadow: none;
+    border: 0;
+}
+#button-calculate:hover{
+    cursor: pointer;
+    -webkit-box-shadow: 0 0 30px 0 rgba(140, 140, 140, 0.98);
+    -moz-box-shadow:    0 0 30px 0 rgba(140, 140, 140, 0.98);
+    box-shadow:         0 0 30px 0 rgba(140, 140, 140, 0.98);
+}
+#selected{
+    background-color: transparent;
+}
+#selected div select{
+    width: 221px;
+}
+#selected div{
+    overflow: hidden;
+    height: auto;
+}
+#selected div label{
+    float: left;
+}
+
+.sel{
+    float: right;
+}
+#AT {
+    height: auto;
+    overflow: hidden;
+    width: 100%;
+    clear: both;
+    float: left;
+}
+#AT-2{
+    width: auto;
+    height: auto;
+    float: left;
+    margin-left: 0px;
+}
+#AT-1{
+    width: auto;
+    height: auto;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+select{
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    background-color: #eee;
+    padding: 1px;
+    background-image: -moz-linear-gradient(#fff,#eee);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
+    background-image: -webkit-linear-gradient(#fff, #eee);
+    background-image: -o-linear-gradient(#fff, #eee);
+    background-image: -ms-linear-gradient(#fff, #eee);
+    background-image: linear-gradient(#fff, #eee);
+}
+.pricing-table {
+    margin: 0px auto;
+    text-align: center;
+    height: auto;
+    overflow: hidden;
+}
+.pricing-table h3{
+    font-size: 18px;
+    font-weight: normal;font-weight: 500;
+    padding: 30px;
+    margin: -10px -40px -20px -40px;
+    background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%, rgba(255,255,255,0) 102%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(50%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0)), color-stop(102%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%,rgba(255,255,255,0) 102%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%,rgba(255,255,255,0) 102%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%,rgba(255,255,255,0) 102%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%,rgba(255,255,255,0) 102%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+
+
+
+
+
+}
+.pricing-table ul {
+    margin: 0px 0 0 0;
+    padding: 0;
+    list-style: none;
+}
+.pricing-table #hat ul {
+    margin: 0px 0 0 0;
+    padding: 0;
+    list-style: none;
+}
+.pricing-table li {
+    border-top: 1px solid #ddd;
+    padding: 10px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.contein-subjects{
+    height: auto;
+    overflow: hidden;
+}
+.input-style{
+    float: left;
+    font-size: 16px;
+    background-color: #eee;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    padding: 1px;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin-right: 1px;
+    border: 1px solid #999999;
+    background-image: -moz-linear-gradient(#fff,#eee);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
+    background-image: -webkit-linear-gradient(#fff, #eee);
+    background-image: -o-linear-gradient(#fff, #eee);
+    background-image: -ms-linear-gradient(#fff, #eee);
+    background-image: linear-gradient(#fff, #eee);
+}
+#menu{
+    width: 100%;
+    margin: 0 auto;
+    height: auto;
+    overflow: hidden;
+    background-color: #464646;
+}
+#apex{
+    background: url("image/left-2.jpg") repeat;
+    width: 100%;
+    margin: 0 auto;
+    height: 20%;
+}
+#menu-center{
+    width: 1017px;
+    overflow: hidden;
+    margin: 0 auto;
+    height: 50px;
+}
+#menu-bottom{
+    position: relative;
+    bottom: 3px;
+    z-index: 1000;
+    margin-left: 2px;
+    width: 1017px;
+    height: 51px;
+}
+#menu-bottom .center .table-menu .wrapper ul li .menu-line{
+    background: url("image/menu-bottom-dotted.png") no-repeat center top;
+    height: 8px;
+    width: 7px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 20px;
+
+}
+#menu-bottom .center .table-menu li a {
+    color : #fdfafa;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    line-height:49px;
+    display: inline-block;
+}
+.center{
+    margin: 0 auto;
+}
+.table-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: table-row;
+}
+.table-menu li {
+    display: table-cell;
+    text-align: center;
+    line-height: 49px;
+}
+.table-menu li a {
+    color : #fdfafa;
+    font-family: fantasy;
+    font-size: 20px;
+    text-decoration: none;
+    line-height:49px;
+    display: inline-block;
+}
+.table-menu li a span{
+    line-height: 49px;
+    display: inline-block;
+}
+.wrapper {
+    display: table;
+    width: 100%;
+}
+.menu-line{
+    height: 50px;
+    width: 3px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: -20px;
+}
+#open1{
+    margin-left: 110px;
+}
+#closse1{
+    margin-right: 95px;
+}

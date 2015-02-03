@@ -1,0 +1,65 @@
+body{
+    padding: 1px;
+    margin: -1px;
+}
+button:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 0;
+}
+h6{
+    margin-top: 4px;
+    padding-right: 70px;
+    text-align: center;
+}
+#name{
+    margin: 0px;
+    margin-left: 50px;
+}
+.center{
+    width: 500px;
+    margin: 0 auto;
+    line-height: 1.6em;
+}
+button[onclick="logout()"]{
+    float: right;
+    padding: 1px;
+    color: rgba(0, 27, 151, 0.95);
+    background-color: #E5EAEA;
+    border: 1px solid #48bbb4;
+    border-radius: 6px;
+    width: 70px;
+}
+div.table{
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-left: 50px;
+    width: 65%;
+    float: left;
+}
+div.table caption{
+    margin-right: 70px;
+}
+div.table table{
+    width: 100%;
+    display: inline-table;
+    border: solid 1px #48bbb4;
+    border-collapse: collapse;
+}
+td, th {
+    border: 1px solid;
+    padding: 0 4px;
+    text-align: left;
+    text-indent: 2px;
+    vertical-align: middle;
+}
+
+#settings
+{
+    float: left;
+
+}

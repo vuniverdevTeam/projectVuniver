@@ -1,0 +1,28 @@
+body {
+    font-size: 18px;
+   margin: 0;
+    background-color: whitesmoke;
+}
+a.knopka{
+    margin: 15px;
+    color: #fff; /* цвет текста */
+    text-decoration: none; /* убирать подчёркивание у ссылок */
+    user-select: none; /* убирать выделение текста */
+    -moz-user-select: -moz-none;
+    -webkit-user-select: none;
+    user-select: none;
+    background-color: #484A47; /* фон кнопки */
+    outline: none; /* убирать контур в Mozilla */
+}
+a.knopka:hover {
+    cursor: pointer;
+} /* при наведении курсора мышки */
+a.knopka:active {
+    background-color: #999;
+} /* при нажатии */
+
+.plus-box{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}

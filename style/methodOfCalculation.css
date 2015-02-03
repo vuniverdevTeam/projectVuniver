@@ -1,0 +1,14 @@
+#container {
+    font-size: 20px;
+    margin: 0 auto;
+    width: 1100px;
+    min-width: 980px;
+}
+
+#firstMethod {
+    width: 100%;
+}
+p{
+    text-indent: 2em;
+    margin-bottom: -0.5em;
+}

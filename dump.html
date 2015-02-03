@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Бек-ап контроль</title>
+    <link rel = "stylesheet" type = "text/css" href="../project%20ISM/style/dump.css"/>
+    <script type = "text/javascript" src="To_link_js.js"></script>
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+</head>
+<body>
+<div id="header">
+    <div id="title">Панель адміністратора</div>
+</div>
+<div id = "wrapper" class="inline">
+    <fieldset class="cell" id = "first">
+        <legend>Збереження бази</legend>
+    <form method="GET" action="http://alex.inet-tech.org.ua/cgi-bin/save_dump.cpp.o" id = 'save' onsubmit="alert('Форма була успішно сбережена')" autocomplete="off">
+        <label for = "name">Введіть ім'я файлу:</label>
+        <input type = "text" id = "name" name = "name1" value=".sql"
+               pattern = "[a-zA-Z0-9 -.]{5,14}"/>
+        <br/>
+        <input type = "submit" value = "Зберегти" id = "button-1" class="button"/>
+    </form>
+    </fieldset>
+    <fieldset class="cell" id = "second">
+        <legend>Відновлення бази</legend>
+    <form action="http://alex.inet-tech.org.ua/cgi-bin/load_dump.cpp.o" method="GET" onsubmit="alert('Форма була успішно відновлена')">
+        <label for = "value"> Виберіть імя файлу: </label>
+        <select id = "value" name = "value">
+            ~
+        </select>
+        <br/>
+        <input type = "submit" value = "Відновити" id = "button-2" class="button"/>
+    </form>
+    </fieldset>
+</div>
+<div id = "back">
+<input type="submit" class="button" value="Назад" onclick="history.back()">
+</div>
+</body>
+</html>
+

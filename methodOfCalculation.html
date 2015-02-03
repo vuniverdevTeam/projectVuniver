@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="../project ISM/style/methodOfCalculation.css"/>
+    <link rel="stylesheet" type="text/css" href="../project ISM/style/style_input.css">
+    <script type="text/javascript" src="../project ISM/script/auth.js"></script>
+    <script type="text/javascript" src="../project ISM/script/check_auth.js"></script>
+    <script type="text/javascript" src="../project ISM/script/methodOfCalculation.js"></script>
+    <link rel="stylesheet" type="text/css" href="../project ISM/style/auth.css"/>
+    <link rel="stylesheet" type="text/css" href="../project ISM/style/style-reg.css">
+    <title></title>
+</head>
+<body>
+<div id="auth" class="auth">
+        <div class="auth_center">
+            <form id="form-enter" onsubmit="enter(); return false" name="auth2">
+                <div style="width: 100%; text-align: center;">
+                    <label> Введіть ваші дані</label>
+                </div>
+                <div id="output"></div>
+                <div class="input">
+                    <!--<label for="login">email:</label>-->
+                    <input style="border: 1px solid #48bbb4;font-size: 14px;" placeholder="E-mail" id="login" type="text"/>
+                </div>
+                <div class="input">
+                    <!--<label for="pass">Пароль:</label>-->
+                    <input style="border: 1px solid #48bbb4;" placeholder="Пароль" id="pass" type="password" maxlength="16"/>
+                </div>
+                <input class="button-calculate" type="submit" value="Вхід">
+            </form>
+        </div>
+    </div>
+
+    <div id="reg" class="reg">
+        <div class="auth_center">
+            <form action="http://alex.inet-tech.org.ua/cgi-bin/cout.cpp.o" name="auth">
+                <div class="list">
+                    <div class="calculation" style="background-color: transparent;">
+                        <form action="http://alex.inet-tech.org.ua/cgi-bin/cout.cpp.o" method="GET">
+                                <div style="width: 100%; text-align: center;">
+                                    <label> Введіть ваші дані </label>
+                                </div>
+                                <div class="cont-reg">
+                                    <!--<label for="mail">Валідний E-mail:</label>-->
+                                    <input placeholder="Валідний E-mail" class="cont-reg-input" id="mail" name="mail" required="required" type="text" pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$">
+                                </div>
+                                <div class="cont-reg">
+                                    <!--<label for="password1">Введіть пароль:</label>-->
+                                    <input placeholder="Введіть пароль" class="cont-reg-input" id="password1" required="required" name="password1" type="password" pattern="[a-zA-Z0-9]+$">
+                                </div>
+                                <div class="cont-reg">
+                                    <!--<label for="password2">Підтвердіть пароль:</label>-->
+                                    <input placeholder="Підтвердіть пароль" class="cont-reg-input" id="password2" required="required" name="password2" type="password" onchange="check()">
+                                </div>
+                            <input style="margin-right: 1px;" type="submit" id="button-calculate" class="button-calculate" value="Зареєструватися">
+                        </form>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="apex">
+        <div id="open-tab">
+            <h2 style="text-align: center; color: #3ba09a; padding-top: 3px;">Методика розрахунку ймовірності</h2>
+        </div>
+        <div id="menu">
+            <div id="menu-center">
+                <div id="menu-bottom">
+                    <div class="center">
+                        <div class="table-menu">
+                            <div class="wrapper">
+                                <ul>
+                                    <li><div id="open1"></div></li>
+                                    <li id="proc"><a href="#" id="proc-a" onclick="backPage();"><span>Повернутись назад</span></a></li>
+                                    <li><div class="menu-line"></div></li>
+                                    <li id="kab"><a href="#" id="auth_open"><span>Вхід</span></a></li>
+                                    <li><div class="menu-line"></div></li>
+                                    <li id="regi"><a href="#" id="registration"><span>Зареєструватись</span></a></li>
+                                    <li><div id="closse1"></div></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+				<div style="clear: both"></div>
+    </div>
+    <div id="apex-line"></div>
+
+    <div id="container">
+        <div id="betaMethod">
+
+            <p>Настає час коли кожен абітурієнт має визначитись з обранням професії, якою він хотів би займатись все
+                своє життя. Проте лише обрання спеціальності це не єдина проблема з якою зіткається абітурієнт, адже
+                велике значення відіграє і заклад, в якому він буде здобувати свої навички і знання.</p>
+            <p>Цей ресурс був створений з метою допомоги абіруєнтам в обранні вищого навчального закладу
+            України, а точніше, в розрахунку ймовірності вступу абітурієнта в вищий навчальний заклад України.
+            Даний ресурс виконує розрахунок ймовірності вступу абітурієнта з врахуванням прохідних балів
+            минулих років на контракт та на бюджет. Сам розрахунок ведеться за допомогою методу бета-розподілу.</p>
+
+            <p>Бета-розподіл  — в теорії імовірностей і статистиці двопараметрична сім'я абсолютно
+            неперервних розподілів.</p>
+
+            <p>Нехай розподіл випадкової величини X задаєтся щільністю імовірності f_X, яка має вигляд:<br/>
+
+            fX(x) = 1/B(alpha, beta)*x^(alpha - 1)*(1-x)^(beta - 1), - (1)<br/>
+
+            де
+
+            alpha, beta > 0 довільні фіксовані параметри, і <br/>
+            B(alpha,beta) = limits_0^1 (x^(alpha - 1)*(1-x)^(beta - 1) dx) — бета-функція. <br/>
+
+            Тоді випадкова величина X має бета-розподіл. Пишуть: X~B(alpha,beta).</p>
+
+            <p>В свою чергу параметри alpha, beta визначаються наступним чином: <br/>
+
+            alpha = M*((M(1-M)/D) - 1)<br/>
+            beta = (1-M)((M(1-M)/D) - 1), де<br/>
+            M - математичне сподівання, це одна з основних числових характеристик кожної числової змінної.
+            Воно є узагальненим поняттям середнього значення сукупності чисел на той випадок,
+            коли елементи множини значень цієї сукупності мають різні значення.<br/>
+
+            D - дисперсія випадкової величини, є мірою відхилення значень випадкової величини від
+            центру розподілу. Більші значення дисперсії свідчать про більші відхилення значень випадкової
+            величини від центру розподілу.</p>
+
+            <p>Іншими словами, математичне сподівання в нашому випадку це середнє арифметичне
+            прохідних балів на контракт або бюджет в певному вузі на певну спеціальність за всі роки
+            складання ЗНО. Дисперсія - найбільше відхилення від цього значення.</p>
+
+            <p>Виконавши всі ці прості математичні розрахунки ми отримуємо значення функції (1), яка
+            і показує ймовірність вашого вступу в вуз.</p>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    function backPage(){
+        history.back();
+    }
+</script>
+</html>

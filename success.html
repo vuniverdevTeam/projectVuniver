@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>input</title>
+    <link rel="stylesheet" type="text/css" href="../project ISM/style/style_input.css">
+
+    <link rel="stylesheet" type="text/css" href = "../project ISM/style/output.css">
+    <script type="text/javascript" src="../project ISM/script/check_auth.js"></script>
+    <script type="text/javascript" src="../project ISM/script/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../project ISM/script/classList.min.js"></script>
+    <script src="../project ISM/script/To_link_js.js"></script>
+    <script type="text/javascript" src="../project ISM/script/auth.js"></script>
+    <link rel="stylesheet" type="text/css" href="../project ISM/style/auth.css"/>
+    <link rel="stylesheet" type="text/css" href="../project ISM/style/style-reg.css">
+    <!--<link rel="stylesheet" type="text/css" href="../project ISM/style/success.css">-->
+    <link rel="stylesheet" type="text/css" href="success.css">
+</head>
+<body style="min-width: 1370px; height: 100%;">
+<div id="auth" class="auth">
+        <div class="auth_center">
+            <form id="form-enter" onsubmit="enter(); return false" name="auth2">
+                <div style="width: 100%; text-align: center;">
+                    <label> Введіть ваші дані</label>
+                </div>
+                <div id="output"></div>
+                <div class="input">
+                    <!--<label for="login">email:</label>-->
+                    <input style="border: 1px solid #48bbb4;font-size: 14px;" placeholder="E-mail" id="login" type="text"/>
+                </div>
+                <div class="input">
+                    <!--<label for="pass">Пароль:</label>-->
+                    <input style="border: 1px solid #48bbb4;" placeholder="Пароль" id="pass" type="password" maxlength="16"/>
+                </div>
+                <input class="button-calculate" type="submit" value="Вхід">
+            </form>
+        </div>
+    </div>
+
+    <div id="reg" class="reg">
+        <div class="auth_center">
+            <form action="http://alex.inet-tech.org.ua/cgi-bin/cout.cpp.o" name="auth">
+                <div class="list">
+                    <div class="calculation" style="background-color: transparent;">
+                        <form action="http://alex.inet-tech.org.ua/cgi-bin/cout.cpp.o" method="GET">
+                                <div style="width: 100%; text-align: center;">
+                                    <label> Введіть ваші дані </label>
+                                </div>
+                                <div class="cont-reg">
+                                    <!--<label for="mail">Валідний E-mail:</label>-->
+                                    <input placeholder="Валідний E-mail" class="cont-reg-input" id="mail" name="mail" required="required" type="text" pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$">
+                                </div>
+                                <div class="cont-reg">
+                                    <!--<label for="password1">Введіть пароль:</label>-->
+                                    <input placeholder="Введіть пароль" class="cont-reg-input" id="password1" required="required" name="password1" type="password" pattern="^[\w@,./\\:+*-]{6,}$"/>
+                                </div>
+                                <div class="cont-reg">
+                                    <!--<label for="password2">Підтвердіть пароль:</label>-->
+                                    <input placeholder="Підтвердіть пароль" class="cont-reg-input" id="password2" required="required" name="password2" type="password" onchange="check()" pattern="^[\w@,./\\:+*-]{6,}$"/>
+                                </div>
+                            <input style="margin-right: 1px;" type="submit" id="button-calculate" class="button-calculate" value="Зареєструватися">
+                        </form>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="apex">
+        <div id="open-tab">
+            <h2 style="text-align: center; color: #3ba09a; padding-top: 3px;">Розрахунок ймовірності вступу</h2>
+        </div>
+        <div id="menu">
+            <div id="menu-center">
+                <div id="menu-bottom">
+                    <div class="center">
+                        <div class="table-menu">
+                            <div class="wrapper">
+                                <ul>
+                                    <li><div id="open1"></div></li>
+                                    <li id="proc"><a href="../project ISM/index.html" id="proc-a"><span>На головну</span></a></li>
+                                    <li><div class="menu-line"></div></li>
+                                    <li id="kab"><a href="#" id="auth_open"><span>Вхід</span></a></li>
+                                    <li><div class="menu-line"></div></li>
+                                    <li id="regi"><a href="#" id="registration"><span>Зареєструватись</span></a></li>
+                                    <li><div id="closse1"></div></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+				<div style="clear: both"></div>
+    </div>
+    <div id="apex-line"></div>
+	
+		<div id="message" hidden="hidden">
+	    <h2>Зачекайте, поки будуть готові результати</h2>
+			<h4>Середній час обчислення 50с</h4>
+		</div>    
+<script type="text/javascript">
+    document.getElementById('m3').onchange = function() {
+        if(document.getElementById('m3').value != '') document.getElementById('sub3').required = 'required';
+        else document.getElementById('sub3').removeAttribute('required');
+    };
+    document.getElementById('m4').onchange = function() {
+        if(document.getElementById('m4').value != '') document.getElementById('sub4').required = 'required';
+        else document.getElementById('sub4').removeAttribute('required');
+    };
+</script>
+<div id = "success-wrap">
+<h1>Дякуємо за реєстрацію</h1>
+<div id  = "success">
+
+    Реєстрація успішно завершена.Протягом 5 хвилин на вашу електронну адресу прийде лист з посиланням для активації аккаунту.
+</div>
+</div>
+</body>
+</html>
