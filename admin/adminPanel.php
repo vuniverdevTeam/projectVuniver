@@ -58,8 +58,8 @@
                		  </div>';
        	echo '<div id="content" style="padding-top:50px">';
        	echo '<h4>Поточний алгоритм розрахунку ймовірності:</h4>';
-       	if ($isBetaActive) echo '<div class="switch inline active" id="left">Бета-алгоритм</div><div class="switch inline notactive" id="right">Стандартний алгоритм</div><br>';
-        else echo '<div class="switch inline notactive" id="left">Бета-алгоритм</div><div class="switch inline active" id="right">Стандартний алгоритм</div><br>';
+       	if ($isBetaActive) echo '<div class="switch inline active" id="left">Бета-алгоритм</div><div class="switch inline notactive" id="right">Нормальний алгоритм</div><br>';
+        else echo '<div class="switch inline notactive" id="left">Бета-алгоритм</div><div class="switch inline active" id="right">Нормальний алгоритм</div><br>';
         echo '<form action="1.php" method="post"><input name="hash" value="' . $key .'" style="visibility: hidden; position: absolute; top: 0px; left: 0px;"><br/><input type="submit" value="Гісторамма"></form>';
         echo '<a href="http://alex.inet-tech.org.ua/cgi-bin/dump-page.cpp.o"><input type="button" value="Завантаження або збереження бази"/></a><br><br>
 		<div id="last-gen">'. $currentFill .'</div><div class="inline"><form class="cell border" method="" action="">
@@ -121,7 +121,6 @@
 	echo '<a href="index.html"><input type="button" value="Назад"/></a></div></div>';
        }
 
-	echo '<div id="cat"><a href="http://kotomatrix.ru/" alt="Больше котиков" title
-	="Больше котиков"><img src="cat.jpg"></a></div>';
+	echo '<div id="cat"><a href="http://kotomatrix.ru/" alt="Больше котиков" title="Больше котиков"><img src="cat.jpg"></a></div>';
    mysql_close($link);
 ?>
