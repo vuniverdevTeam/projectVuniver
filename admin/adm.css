@@ -152,3 +152,6 @@ form input[type=text]{
 .OK{
     width: 75px;
 }
+.inline-table{
+    display: inline-table;
+}
