@@ -67,11 +67,13 @@ function clear2(){
     if(el2.value == ""){
         show_hideUn('apDiv1');
         show_hideUn('apDiv2');
-	getElements('sub3');
+        getElements('sub3');
+        getElements('sub4');
     }
+    else
     if(el3.value== ""){
         show_hideUn('apDiv2');
-	getElements('sub4');
+        getElements('sub4');
     }
 
 }
@@ -108,13 +110,13 @@ function Retur(v) {
 
 var k=0;
 /*function labelClick(r){
-    if(k==0)k=1;
-    else
-        k=0;
-    if(k==1)document.getElementById(r).style.color = '#999999';
-    else
-        document.getElementById(r).style.color='#484A47'
-}*/
+ if(k==0)k=1;
+ else
+ k=0;
+ if(k==1)document.getElementById(r).style.color = '#999999';
+ else
+ document.getElementById(r).style.color='#484A47'
+ }*/
 
 
 
@@ -175,27 +177,25 @@ function getElementsSave()
         subj4.removeChild(subj4.childNodes[subj4.childNodes.length-1]);
     }
 
-	if(restoreData.marks[3] == '')
-        {
-            clear2();
-            show_hide('apDiv1');
-        }
-	if(restoreData.marks[4] == '')
-        {
-		if(restoreData.marks[3] != '')
-		{
-			clear2();
-			show_hide('apDiv1');
-            		show_hide('apDiv2');
-		}
-        }
     if(restoreData.marks[3] != '')
     {
-        show_hide('apDiv1');
+        if(restoreData.marks[4] == '')
+        {
+            getElements('sub4');
+            show_hide('apDiv1');
+            show_hide('apDiv2');
+        }
+        else
+            show_hide('apDiv1');
         var rt2=document.createElement("option");
         rt2.innerHTML = arr[restoreData.subjs[2]];
         rt2.value = restoreData.subjs[2];
         subj3.appendChild(rt2);
+    }
+    if(restoreData.marks[3] == '')
+    {
+        clear2();
+        show_hide('apDiv1');
     }
     if(restoreData.marks[4] != '')
     {
@@ -209,7 +209,6 @@ function getElementsSave()
     rt.innerHTML = arr[0];
     rt.value = 0;
     subj1.appendChild(rt);
-
     var rt1=document.createElement("option");
     rt1.innerHTML = arr[restoreData.subjs[1]];
     rt1.value = restoreData.subjs[1];
@@ -223,10 +222,10 @@ function getElementsSave()
 }
 
 
-window.onload = function () {		
-		﻿document.getElementById('message').hidden = "hidden";
-		
-		auth = new Auth_Menu({
+window.onload = function () {
+    document.getElementById('message').hidden = "hidden";
+
+    auth = new Auth_Menu({
         elem: document.getElementById('auth'),
         id1: document.getElementById('login'),
         id2: document.getElementById('pass'),
@@ -251,11 +250,11 @@ window.onload = function () {
         if(document.getElementById('registration')) {
             document.getElementById('registration').firstChild.innerHTML = 'Вихід';
             document.getElementById('registration').id = 'logout';
-						restoreRegistrationData = document.getElementById('logout').onclick;
+            restoreRegistrationData = document.getElementById('logout').onclick;
             document.getElementById('logout').onclick = logout;
         }
     }
-		
+
 
     labelClick('Label');
     //області:
@@ -286,7 +285,7 @@ window.onload = function () {
         center.style.maxWidth = '205px';
         document.body.style.zoom = '380%';
     }
- 
+
     if(window.restoreData !== undefined && window.restoreData.subjs[0] !== undefined){
         clear();
         getElementsSave();
@@ -470,7 +469,7 @@ check = function () {
     var submitButton = document.getElementById('button-calculate');
     if(pass1 != pass2)
     {
-       submitButton.disabled = true;
+        submitButton.disabled = true;
     }
     else
     {
