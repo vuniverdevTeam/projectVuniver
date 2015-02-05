@@ -23,7 +23,7 @@ function removeAllChild(el) {
     el.appendChild(rt2);
 }
 function createOptions(el, arr1){
-    for(var i=0; i<arr1.length; i++) {
+    for(var i=0; i<arr1.length; i++){
         var opt = document.createElement("option");
         opt.value=arr1[i];
         opt.appendChild(document.createTextNode(arr1[++i]));
@@ -264,7 +264,14 @@ window.onload = function () {
     xhr.send('reg=0');
     arr1 = eval('(' + xhr.responseText + ')');
     var obj = document.getElementById('option');
+    if(restoreData.reg != '')
+    {
+        show_hide('selected');
+        createOptionsSave(obj, arr1, restoreData.reg);
+    }
+    else
     createOptions(obj, arr1);
+
     //спеціальності
     xhr.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/ajax.cpp.o', false);
     xhr.send('spec=0');
@@ -272,13 +279,18 @@ window.onload = function () {
     specialities = eval('(' + xhr.responseText + ')');
     for(i = 0; i < specialities.length; i += 2)
         for(j = i + 2; j < specialities.length; j += 2)
-            if(specialities[i] == specialities[j]) {
+            if(specialities[i] == specialities[j]){
                 specialities.splice(j, 2);
                 j -= 2;
             }
     obj = document.getElementById('option4');
+    if(restoreData.Spec != '')
+    {
+        show_hide('selected');
+        createOptionsSave(obj, specialities, restoreData.Spec)
+    }
+    else
     createOptions(obj, specialities);
-
 
     center = document.getElementsByClassName('auth_center')[0];
     if(screen.width < 400){
@@ -297,20 +309,39 @@ window.onload = function () {
         getElements('sub3');
         getElements('sub4');
     }
+    obj1 = document.getElementById('option');
+    obj2 = document.getElementById('option1');
+    obj3 = document.getElementById('option2');
+    obj4 = document.getElementById('option3');
+    obj5 = document.getElementById('option4');
+    if(restoreData.city != '')showNames(obj1.value);
+    if(restoreData.Univer != '')showNames1(obj2.value);
+    if(restoreData.Fac != '')showNames2(obj3.value);
+    if(restoreData.Spec != '')showNames3(obj4.value);
 };
 
 
-
-
-
-
-
+function createOptionsSave(el, arr1, index)
+{
+    for(var i=0; i<arr1.length; i++){
+        var opt = document.createElement("option");
+        opt.value=arr1[i];
+        if(arr1[i] == index)
+        {
+            opt.selected = true;
+        }
+        opt.appendChild(document.createTextNode(arr1[++i]));
+        el.appendChild(opt);
+    }
+}
+/*var restoreData = { marks : [150, 170, 180, '','' ], subjs : [1,2,'',''], reg : 1, city : 1, Univer : 1881, Fac : 1591, Spec : 21}*/
+var restoreVisible = [0,0,0,0,0];
 //ВНЗ:
 /*xhr.onreadystatechange = function() {
  if (xhr.readyState != 4) return;
  };*/
 var specialities;
-function showNames(v) {
+function showNames(v){
     if(+v >= 1) {
         var arr;
         var xhr = new XMLHttpRequest();
@@ -319,6 +350,13 @@ function showNames(v) {
         arr = eval('(' + xhr.responseText + ')');
         var el = document.getElementById('option1');
         removeAllChild_city(el);
+        if(restoreData.city != '' && restoreVisible[1] == 0)
+        {
+            restoreVisible[1] = 1;
+            show_hide('selected');
+            createOptionsSave(el, arr, restoreData.city);
+        }
+        else
         createOptions(el, arr);
     }
 }
@@ -331,6 +369,13 @@ function showNames1(v) {
         xhr.send('univer=' + v);
         arr = eval('(' + xhr.responseText + ')');
         removeAllChild_univ(el);
+        if(restoreData.Univer != '' && restoreVisible[2] == 0)
+        {
+            restoreVisible[2] = 1;
+            show_hide('selected');
+            createOptionsSave(el, arr, restoreData.Univer);
+        }
+        else
         createOptions(el, arr);
     }
 }
@@ -342,6 +387,13 @@ function showNames2(v) {
         xhr.send('fac=' + v);
         arr = eval('(' + xhr.responseText + ')');
         removeAllChild_faculty(el);
+        if(restoreData.Fac != '' && restoreVisible[3] == 0)
+        {
+            restoreVisible[3] = 1;
+            show_hide('selected');
+            createOptionsSave(el, arr, restoreData.Fac);
+        }
+        else
         createOptions(el, arr);
 
         el = document.getElementById('option4');
@@ -350,6 +402,13 @@ function showNames2(v) {
             xhr.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/ajax.cpp.o', false);
             xhr.send('spec=' + arr[i]);
             arr1 = eval('(' + xhr.responseText + ')');
+            if(restoreData.Spec != '' && restoreVisible[4] == 0)
+            {
+                restoreVisible[4] = 1;
+                show_hide('selected');
+                createOptionsSave(el, arr, restoreData.Spec);
+            }
+            else
             createOptions(el, arr1);
             arr1.length = 0;
         }
@@ -368,6 +427,13 @@ function showNames3(v) {
         xhr.send('spec=' + v);
         arr = eval('(' + xhr.responseText + ')');
         removeAllChild_spec(el);
+        if(restoreData.Spec != '' && restoreVisible[4] == 1)
+        {
+            restoreVisible[4] = 2;
+            show_hide('selected');
+            createOptionsSave(el, arr, restoreData.Spec);
+        }
+        else
         createOptions(el, arr);
     }
 }
