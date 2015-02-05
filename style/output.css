@@ -143,7 +143,7 @@ h1
 #pricing-table {
     margin: 0px auto 50px auto;
     text-align: center;
-    /*width: 850px; /* total computed width = 222 x 3 + 226 */
+    width: 1024px; /* total computed width = 222 x 3 + 226 */
     height: auto;
     overflow: hidden;
 		display: inline-block;
