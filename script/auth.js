@@ -127,9 +127,16 @@ var signUp = function()
 {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/registration.cpp.o', false);
-    var mail = document.getElementById('mail');
-    var pass1 = document.getElementById('password1');
-    var pass2 = document.getElementById('password2');
+    var mail = document.getElementById('mail').value;
+    var pass1 = document.getElementById('password1').value;
+    var pass2 = document.getElementById('password2').value;
     xhr.send("mail="+mail+"&pass1="+pass1+"&pass2="+pass2);
-    alert(xhr.responseText);
+   if(xhr.responseText == 228)
+   {
+       alert("Данний mail вже використовуется");
+   }
+    else
+   {
+       window.location.replace("http://alex.inet-tech.org.ua/project%20ISM/success.html");
+   }
 };
