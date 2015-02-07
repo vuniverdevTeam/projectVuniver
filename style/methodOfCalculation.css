@@ -10,6 +10,17 @@
 p{
     text-indent: 2em;
     margin-bottom: -0.5em;
+    line-height: 1.5;
+    text-align: justify;
+}
+p a{
+    text-decoration: none;
+}
+p a:hover{
+    text-decoration: underline;
+}
+.left-0{
+    text-indent: 0em;
 }
 .conteinFormulas{
     padding: 10px;
@@ -17,14 +28,19 @@ p{
     border-radius: 4px;
     background-color: whitesmoke;
     border: 1px solid #afafaf;
+    margin-top: 20px;
 }
 .conteinGrafics{
-    float: left;
+    float: right;
     padding: 10px;
     margin: 10px;
+    margin-top: 20px;
     width: 450px;
     height: auto;
     border-radius: 4px;
     background-color: whitesmoke;
     border: 1px solid #afafaf;
+}
+#betaMethod h3{
+    text-align: center;
 }
