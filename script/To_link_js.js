@@ -264,7 +264,7 @@ window.onload = function () {
     xhr.send('reg=0');
     arr1 = eval('(' + xhr.responseText + ')');
     var obj = document.getElementById('option');
-    if(restoreData.reg != '')
+    if(window.restoreData !== undefined && restoreData.reg != '')
     {
         show_hide('selected');
         createOptionsSave(obj, arr1, restoreData.reg);
@@ -284,7 +284,7 @@ window.onload = function () {
                 j -= 2;
             }
     obj = document.getElementById('option4');
-    if(restoreData.Spec != '')
+    if(window.restoreData !== undefined && restoreData.Spec !== '')
     {
         show_hide('selected');
         createOptionsSave(obj, specialities, restoreData.Spec)
@@ -297,6 +297,15 @@ window.onload = function () {
         center.style.maxWidth = '205px';
         document.body.style.zoom = '380%';
     }
+    obj1 = document.getElementById('option');
+    obj2 = document.getElementById('option1');
+    obj3 = document.getElementById('option2');
+    obj4 = document.getElementById('option3');
+    obj5 = document.getElementById('option4');
+    if(window.restoreData !== undefined && restoreData.city != '')showNames(obj1.value);
+    if(window.restoreData !== undefined && restoreData.Univer != '')showNames1(obj2.value);
+    if(window.restoreData !== undefined && restoreData.Fac != '')showNames2(obj3.value);
+    if(window.restoreData !== undefined && restoreData.Spec != '')showNames3(obj4.value);
 
     if(window.restoreData !== undefined && window.restoreData.subjs[0] !== undefined){
         clear();
@@ -309,15 +318,6 @@ window.onload = function () {
         getElements('sub3');
         getElements('sub4');
     }
-    obj1 = document.getElementById('option');
-    obj2 = document.getElementById('option1');
-    obj3 = document.getElementById('option2');
-    obj4 = document.getElementById('option3');
-    obj5 = document.getElementById('option4');
-    if(restoreData.city != '')showNames(obj1.value);
-    if(restoreData.Univer != '')showNames1(obj2.value);
-    if(restoreData.Fac != '')showNames2(obj3.value);
-    if(restoreData.Spec != '')showNames3(obj4.value);
 };
 
 
@@ -350,7 +350,7 @@ function showNames(v){
         arr = eval('(' + xhr.responseText + ')');
         var el = document.getElementById('option1');
         removeAllChild_city(el);
-        if(restoreData.city != '' && restoreVisible[1] == 0)
+        if(window.restoreData !== undefined && restoreData.city != '' && restoreVisible[1] == 0)
         {
             restoreVisible[1] = 1;
             show_hide('selected');
@@ -369,7 +369,7 @@ function showNames1(v) {
         xhr.send('univer=' + v);
         arr = eval('(' + xhr.responseText + ')');
         removeAllChild_univ(el);
-        if(restoreData.Univer != '' && restoreVisible[2] == 0)
+        if(window.restoreData !== undefined && restoreData.Univer != '' && restoreVisible[2] == 0)
         {
             restoreVisible[2] = 1;
             show_hide('selected');
@@ -387,7 +387,7 @@ function showNames2(v) {
         xhr.send('fac=' + v);
         arr = eval('(' + xhr.responseText + ')');
         removeAllChild_faculty(el);
-        if(restoreData.Fac != '' && restoreVisible[3] == 0)
+        if(window.restoreData !== undefined && restoreData.Fac != '' && restoreVisible[3] == 0)
         {
             restoreVisible[3] = 1;
             show_hide('selected');
@@ -427,7 +427,7 @@ function showNames3(v) {
         xhr.send('spec=' + v);
         arr = eval('(' + xhr.responseText + ')');
         removeAllChild_spec(el);
-        if(restoreData.Spec != '' && restoreVisible[4] == 1)
+        if(window.restoreData !== undefined && restoreData.Spec != '' && restoreVisible[4] == 1)
         {
             restoreVisible[4] = 2;
             show_hide('selected');
