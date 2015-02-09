@@ -17,6 +17,7 @@ function getInfo(event)
         event.target.innerHTML = "Збережено"
     }
 		else {
+        document.getElementById('reg').classList.toggle('reg_open');
         if (document.getElementById('auth_close')) {
             document.getElementById('auth_close').firstChild.innerHTML = 'Вхід';
             document.getElementById('auth_close').removeAttribute('href');
