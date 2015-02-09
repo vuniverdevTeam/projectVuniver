@@ -225,6 +225,8 @@ function getElementsSave()
 window.onload = function () {
     document.getElementById('message').hidden = "hidden";
 
+
+
     auth = new Auth_Menu({
         elem: document.getElementById('auth'),
         id1: document.getElementById('login'),
@@ -330,7 +332,31 @@ window.onload = function () {
         getElements('sub3');
         getElements('sub4');
     }
+    //Проверка на наличие записи в кабинете
+
+    //
 };
+
+function checkAsAdded()
+{
+    var id = checkAuth();
+    var xhrC = new XMLHttpRequest();
+    xhrC.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/checkAsAdded.cpp.o', false);
+    xhrC.send("id="+id['field']);
+    var arr = xhrC.responseText.split("~");
+    var table = document.getElementById("inp-table");
+    var len = table.rows.length;
+    for(var r = 0; i<len; i++)
+    {
+        for(var z = 0; z<arr[0]; i++)
+        {
+            if(table.rows[r].cells[4] == arr[z] && table.rows[r].cells[5] == arr[arr[0]+z])
+            {
+                table.rows[r].cells[6].innerHTML = "Вибрано";
+            }
+        }
+    }
+}
 
 
 function createOptionsSave(el, arr1, index)
