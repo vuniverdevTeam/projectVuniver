@@ -13,6 +13,7 @@
     <script type="text/javascript" src="../project ISM/script/check_auth.js"></script>
     <script type="text/javascript" src="../project ISM/script/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="../project ISM/script/classList.min.js"></script>
+    <script type="text/javascript" src="../project ISM/script/passwordValidation.js"></script>
     <script src="../project ISM/script/To_link_js.js"></script>
     <!--<script src="To_link_js.js"></script>-->
     <script type="text/javascript" src="../project ISM/script/auth.js"></script>
@@ -43,23 +44,24 @@
             <form action="" onsubmit="signUp(); return false;" name="auth">
                 <div class="list">
                     <div class="calculation" style="background-color: transparent;">
-                        <form action="" onsubmit="signUp(); return false;" method="POST">
-                                <div style="width: 100%; text-align: center;">
-                                    <label> Введіть ваші дані </label>
-                                </div>
-                                <div class="cont-reg">
-                                    <!--<label for="mail">Валідний E-mail:</label>-->
-                                    <input placeholder="Валідний E-mail" class="cont-reg-input" id="mail" name="mail" required="required" type="text" pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$">
-                                </div>
-                                <div class="cont-reg">
-                                    <!--<label for="password1">Введіть пароль:</label>-->
-                                    <input placeholder="Введіть пароль" class="cont-reg-input" id="password1" required="required" name="password1" type="password" pattern="{4,14}$">
-                                </div>
-                                <div class="cont-reg">
-                                    <!--<label for="password2">Підтвердіть пароль:</label>-->
-                                    <input placeholder="Підтвердіть пароль" class="cont-reg-input" id="password2" required="required" pattern="{4,14}$" name="password2" type="password" onchange="check()">
-                                </div>
-                            <input style="margin-right: 1px;" type="submit" id="button-calculate" class="button-calculate" value="Зареєструватися">
+                        <form action="" onsubmit="signUp(); return false" method="Post">
+                            <div style="width: 100%; text-align: center;">
+                                <label> Введіть ваші дані </label>
+                            </div>
+                            <div class="cont-reg">
+                                <!--<label for="mail">Валідний E-mail:</label>-->
+                                <input placeholder="Валідний E-mail" class="cont-reg-input" id="mail" name="mail" required="required" type="text" pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$">
+                            </div>
+                            <div class="cont-reg">
+                                <!--<label for="password1">Введіть пароль:</label>-->
+                                <input placeholder="Введіть пароль" class="cont-reg-input" id="password1" required="required" name="password1" type="password" oninput="validatePassword()">
+                            </div>
+                            <div class="cont-reg">
+                                <!--<label for="password2">Підтвердіть пароль:</label>-->
+                                <input placeholder="Підтвердіть пароль" pattern="{4,14}$" class="cont-reg-input" id="password2" required="required" name="password2" type="password" oninput="validatePassword()">
+                                <div id="validationmessage" style="font-size: small; width: 180px; text-align: center; line-height: 90%; margin-top: 5px"></div>
+                            </div>
+                            <input style="margin-right: 1px;" type="submit" id="button-register" class="button-calculate" value="Зареєструватися">
                         </form>
                     </div>
                 </div>

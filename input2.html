@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="../project ISM/style/auth.css"/>
     <link rel="stylesheet" type="text/css" href="../project ISM/style/style-reg.css">
     <script type = "text/javascript" src = "../project ISM/script/plusF.js"></script>
+    <script type="text/javascript" src="../project ISM/script/passwordValidation.js"></script>
 </head>
 <body style="min-width: 1350px; height: 100%;">
 <div id="auth" class="auth">
@@ -41,7 +42,7 @@
         <form action="" onsubmit="signUp(); return false;" name="auth">
             <div class="list">
                 <div class="calculation" style="background-color: transparent;">
-                    <form action="" onsubmit="signUp(); return false;" method="POST">
+                    <form action="" onsubmit="signUp(); return false" method="Post">
                         <div style="width: 100%; text-align: center;">
                             <label> Введіть ваші дані </label>
                         </div>
@@ -51,13 +52,14 @@
                         </div>
                         <div class="cont-reg">
                             <!--<label for="password1">Введіть пароль:</label>-->
-                            <input placeholder="Введіть пароль" class="cont-reg-input" id="password1" required="required" name="password1" type="password" pattern="{4,14}$">
+                            <input placeholder="Введіть пароль" class="cont-reg-input" id="password1" required="required" name="password1" type="password" oninput="validatePassword()">
                         </div>
                         <div class="cont-reg">
                             <!--<label for="password2">Підтвердіть пароль:</label>-->
-                            <input placeholder="Підтвердіть пароль" class="cont-reg-input" id="password2" required="required" name="password2" type="password" pattern="{4,14}$" onchange="check()">
+                            <input placeholder="Підтвердіть пароль" pattern="{4,14}$" class="cont-reg-input" id="password2" required="required" name="password2" type="password" oninput="validatePassword()">
+                            <div id="validationmessage" style="font-size: small; width: 180px; text-align: center; line-height: 90%; margin-top: 5px"></div>
                         </div>
-                        <input style="margin-right: 1px;" type="submit" id="button-calculate" class="button-calculate" value="Зареєструватися">
+                        <input style="margin-right: 1px;" type="submit" id="button-register" class="button-calculate" value="Зареєструватися">
                     </form>
                 </div>
             </div>
