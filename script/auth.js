@@ -1,32 +1,13 @@
 "use strict";
-/*function explode( delimiter, string ) {	// Split a string by string
-    var emptyArray = { 0: '' };
-    if (arguments.length != 2 || typeof arguments[0] == 'undefined' || typeof arguments[1] == 'undefined') {
-        return null;
-    }
-    if (delimiter === '' || delimiter === false || delimiter === null) {
-        return false;
-    }
-    if (typeof delimiter == 'function' || typeof delimiter == 'object' || typeof string == 'function'
-        || typeof string == 'object' ) {
-        return emptyArray;
-    }
-    if ( delimiter === true ) {
-        delimiter = '1';
-    }
-    return string.toString().split ( delimiter.toString() );
-}*/
 function enter(event){
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/cookie.cpp.o', false);
     xhr.send('auth=0'+'&'+'login='+document.getElementById('login').value+'&'+'pass='+document.getElementById('pass').value);
     if(xhr.responseText == "-") {
-        //event.stopPropagation ? event.stopPropagation() : (event.cancelBubble=true);
         document.getElementById('output').innerHTML = 'Невірний email або пароль,<br/> спробуйте ще раз'
         return false;
     }
 		if(xhr.responseText == "-noactive") {
-        //event.stopPropagation ? event.stopPropagation() : (event.cancelBubble=true);
         document.getElementById('output').innerHTML = 'Аккаунт не активовано'
         return false;
     }
@@ -36,14 +17,6 @@ function enter(event){
     d = d.toUTCString();
     d = xhr.responseText + '; path=/' + '; expires=' + d;
     document.cookie = d;
-    /*if(prevCookie) {
-        var bar = explode(".ua", prevCookie);
-        if(bar[0] == 'auth=http://alex.inet-tech.org') {
-            bar = explode("auth=", prevCookie);
-            document.location = bar[1];
-            return;
-        }
-    }*/
     document.location.href = "../project ISM/cabinet.html";
 }
 
@@ -133,7 +106,7 @@ var signUp = function()
     xhr.send("mail="+mail+"&pass1="+pass1+"&pass2="+pass2);
    if(xhr.responseText == 228)
    {
-       alert("Данний mail вже використовуется");
+       document.getElementById("reg_mess").innerHTML = 'Данний mail вже використовуется';
    }
     else
    {
