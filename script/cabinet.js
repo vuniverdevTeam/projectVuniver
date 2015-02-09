@@ -47,7 +47,6 @@ window.onload = function() {
     while(subj4.childNodes.length > 0){
         subj4.removeChild(subj4.childNodes[subj4.childNodes.length-1]);
     }
-    alert(date.marks[4]);
     if(date.marks[3] != '' && date.marks[3] != 0)
     {
         if(date.marks[4] == '' || date.marks[4] == 0)

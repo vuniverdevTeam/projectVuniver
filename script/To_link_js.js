@@ -264,8 +264,15 @@ window.onload = function () {
     xhr.send('reg=0');
     arr1 = eval('(' + xhr.responseText + ')');
     var obj = document.getElementById('option');
+    var flag = 0;
     if(window.restoreData !== undefined && restoreData.reg != '')
     {
+        var el = document.getElementById('return-radio');
+        el.checked = true;
+        labelClick('Label');
+        flag=1;
+        var el2 = document.getElementById('Label');
+        el2.innerHTML='Прибрати фільтри';
         show_hide('selected');
         createOptionsSave(obj, arr1, restoreData.reg);
     }
@@ -286,6 +293,11 @@ window.onload = function () {
     obj = document.getElementById('option4');
     if(window.restoreData !== undefined && restoreData.Spec !== '')
     {
+        if(flag == 0){
+            labelClick('Label');
+            var el3 = document.getElementById('return-radio');
+            el3.checked = true;
+        }
         show_hide('selected');
         createOptionsSave(obj, specialities, restoreData.Spec)
     }
