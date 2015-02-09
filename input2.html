@@ -13,6 +13,7 @@
     <script type="text/javascript" src="../project ISM/script/auth.js"></script>
     <link rel="stylesheet" type="text/css" href="../project ISM/style/auth.css"/>
     <link rel="stylesheet" type="text/css" href="../project ISM/style/style-reg.css">
+    <link rel="stylesheet" type="text/css" href="../project ISM/style/validator.css"/>
     <script type = "text/javascript" src = "../project ISM/script/plusF.js"></script>
     <script type="text/javascript" src="../project ISM/script/passwordValidation.js"></script>
 </head>
@@ -57,7 +58,7 @@
                         <div class="cont-reg">
                             <!--<label for="password2">Підтвердіть пароль:</label>-->
                             <input placeholder="Підтвердіть пароль" pattern="{4,14}$" class="cont-reg-input" id="password2" required="required" name="password2" type="password" oninput="validatePassword()">
-                            <div id="validationmessage" style="font-size: small; width: 180px; text-align: center; line-height: 90%; margin-top: 5px"></div>
+                            <div id="validationmessage"></div>
                         </div>
                         <input style="margin-right: 1px;" type="submit" id="button-register" class="button-calculate" value="Зареєструватися">
                     </form>
