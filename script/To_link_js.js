@@ -224,6 +224,13 @@ function getElementsSave()
 
 window.onload = function () {
     document.getElementById('message').hidden = "hidden";
+    var id = checkAuth();
+    //Проверка на наличие записи в кабинете
+    var xhrC = new XMLHttpRequest();
+    xhrC.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/ajax.cpp.o', false);
+    xhrC.send("id="+id['field']);
+    alert(xhrC.responseText);
+    //
 
     auth = new Auth_Menu({
         elem: document.getElementById('auth'),
