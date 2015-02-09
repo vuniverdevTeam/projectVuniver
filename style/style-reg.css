@@ -11,6 +11,7 @@
     background-color: #ffffff;
     border: 1px solid #48bbb4;
     border-radius: 7px;
+		width: 240px;
 }
 
 
@@ -37,6 +38,15 @@ div.reg{
     -moz-transition: all 0.16s;
     transition: all 0.16s;
 }
+
+#reg_mess {
+    color: #ff4e40;
+    font-size: 14px;
+    height: 1.2em;
+    margin-bottom: -7px;
+    margin-top: -20px;
+}
+
 div.reg_open{
     display: block;
     height: 100%;
