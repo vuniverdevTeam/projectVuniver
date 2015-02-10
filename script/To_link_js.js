@@ -244,6 +244,7 @@ window.onload = function () {
 
     var ch = checkAuth();
     if(ch.isAuth) {
+				document.getElementById('name').appendChild(document.createTextNode('Ви увійшли як: ' + ch.data));
         if(document.getElementById('auth_open')) {
             document.getElementById('auth_open').firstChild.innerHTML = 'Кабінет';
             document.getElementById('auth_open').href = '../project ISM/cabinet.html';
@@ -279,7 +280,7 @@ window.onload = function () {
         createOptionsSave(obj, arr1, restoreData.reg);
     }
     else
-        createOptions(obj, arr1);
+    createOptions(obj, arr1);
 
     //спеціальності
     xhr.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/ajax.cpp.o', false);
@@ -307,7 +308,7 @@ window.onload = function () {
         createOptionsSave(obj, specialities, restoreData.Spec)
     }
     else
-        createOptions(obj, specialities);
+    createOptions(obj, specialities);
 
     center = document.getElementsByClassName('auth_center')[0];
     if(screen.width < 400){
@@ -337,7 +338,7 @@ window.onload = function () {
     }
     //Проверка на наличие записи в кабинете
     if(window.location.pathname == '/project%20ISM/index.html'){restoreCabinetData();}
-    checkAsAdded();
+        checkAsAdded();
     //
 };
 
@@ -400,7 +401,7 @@ function showNames(v){
             createOptionsSave(el, arr, restoreData.city);
         }
         else
-            createOptions(el, arr);
+        createOptions(el, arr);
     }
 }
 function showNames1(v) {
@@ -419,7 +420,7 @@ function showNames1(v) {
             createOptionsSave(el, arr, restoreData.Univer);
         }
         else
-            createOptions(el, arr);
+        createOptions(el, arr);
     }
 }
 function showNames2(v) {
@@ -437,7 +438,7 @@ function showNames2(v) {
             createOptionsSave(el, arr, restoreData.Fac);
         }
         else
-            createOptions(el, arr);
+        createOptions(el, arr);
 
         el = document.getElementById('option4');
         removeAllChild_spec(el);
@@ -452,7 +453,7 @@ function showNames2(v) {
                 createOptionsSave(el, arr, restoreData.Spec);
             }
             else
-                createOptions(el, arr1);
+            createOptions(el, arr1);
             arr1.length = 0;
         }
     }
@@ -477,7 +478,7 @@ function showNames3(v) {
             createOptionsSave(el, arr, restoreData.Spec);
         }
         else
-            createOptions(el, arr);
+        createOptions(el, arr);
     }
 }
 function removeAllChild_city(opt1)
