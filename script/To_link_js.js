@@ -225,6 +225,8 @@ function getElementsSave()
 window.onload = function () {
     document.getElementById('message').hidden = "hidden";
 
+
+
     auth = new Auth_Menu({
         elem: document.getElementById('auth'),
         id1: document.getElementById('login'),
@@ -242,6 +244,7 @@ window.onload = function () {
 
     var ch = checkAuth();
     if(ch.isAuth) {
+				document.getElementById('name').appendChild(document.createTextNode('Ви увійшли як: ' + ch.data));
         if(document.getElementById('auth_open')) {
             document.getElementById('auth_open').firstChild.innerHTML = 'Кабінет';
             document.getElementById('auth_open').href = '../project ISM/cabinet.html';
@@ -264,8 +267,15 @@ window.onload = function () {
     xhr.send('reg=0');
     arr1 = eval('(' + xhr.responseText + ')');
     var obj = document.getElementById('option');
+    var flag = 0;
     if(window.restoreData !== undefined && restoreData.reg != '')
     {
+        var el = document.getElementById('return-radio');
+        el.checked = true;
+        labelClick('Label');
+        flag=1;
+        var el2 = document.getElementById('Label');
+        el2.innerHTML='Прибрати фільтри';
         show_hide('selected');
         createOptionsSave(obj, arr1, restoreData.reg);
     }
@@ -286,6 +296,14 @@ window.onload = function () {
     obj = document.getElementById('option4');
     if(window.restoreData !== undefined && restoreData.Spec !== '')
     {
+        if(flag == 0){
+            labelClick('Label');
+            var el3 = document.getElementById('return-radio');
+            el3.checked = true;
+            flag=1;
+            var el2 = document.getElementById('Label');
+            el2.innerHTML='Прибрати фільтри';
+        }
         show_hide('selected');
         createOptionsSave(obj, specialities, restoreData.Spec)
     }
@@ -318,7 +336,33 @@ window.onload = function () {
         getElements('sub3');
         getElements('sub4');
     }
+    //Проверка на наличие записи в кабинете
+    if(window.location.pathname == '/project%20ISM/index.html'){restoreCabinetData();}
+        checkAsAdded();
+    //
 };
+
+function checkAsAdded()
+{
+    var id = checkAuth();
+    var xhrC = new XMLHttpRequest();
+    xhrC.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/checkAsAdded.cpp.o', false);
+    xhrC.send("id="+id['field']);
+    var arr = xhrC.responseText.split("~");
+    var table = document.getElementById("inp-table");
+    var len = table.rows.length;
+    var numb = parseInt(arr[0]);
+    for(var r = 1; r<len; r++)
+    {
+        for(var z = 1; z<=arr[0]; z++)
+        {
+            if(table.rows[r].cells[4].innerText == arr[z] && table.rows[r].cells[5].innerText == arr[numb+z])
+            {
+                table.rows[r].cells[6].innerText = "Збережено";
+            }
+        }
+    }
+}
 
 
 function createOptionsSave(el, arr1, index)
@@ -543,3 +587,78 @@ check = function () {
     }
 };
 
+function restoreCabinetData(){
+    what = checkAuth();
+    if(what["field"] != undefined)
+    {
+        var xhr5 = new XMLHttpRequest();
+        xhr5.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/SELECT_objects.cpp.o', false);
+        var id = checkAuth();
+        xhr5.send(id['field']);
+        var date = eval('('+xhr5.responseText+')');//Вот тут лежат оценки и предметы в таком порядке: атестат(оценка), укр мова(оценка), предмет2, оценка2, предмет3,оценка3, предмет4, оценка4.
+        clear();
+        var subj1 = document.getElementById('sub1');
+        var numb1 = document.getElementById('m1');
+        var subj2 = document.getElementById('sub2');
+        var numb2 = document.getElementById('m2');
+        var subj3 = document.getElementById('sub3');
+        var numb3 = document.getElementById('m3');
+        var subj4 = document.getElementById('sub4');
+        var numb4 = document.getElementById('m4');
+        var numb5 = document.getElementById('m5');
+        while(subj1.childNodes.length > 0){
+            subj1.removeChild(subj1.childNodes[subj1.childNodes.length-1]);
+        }
+        while(subj2.childNodes.length > 0){
+            subj2.removeChild(subj2.childNodes[subj2.childNodes.length-1]);
+        }
+        while(subj3.childNodes.length > 0){
+            subj3.removeChild(subj3.childNodes[subj3.childNodes.length-1]);
+        }
+        while(subj4.childNodes.length > 0){
+            subj4.removeChild(subj4.childNodes[subj4.childNodes.length-1]);
+        }
+        if(date.marks[3] != '' && date.marks[3] != 0)
+        {
+            if(date.marks[4] == '' || date.marks[4] == 0)
+            {
+                getElements('sub4');
+                show_hide('apDiv1');
+                show_hide('apDiv2');
+            }
+            else
+                show_hide('apDiv1');
+            var rt2=document.createElement("option");
+            rt2.innerHTML = arr[date.subjs[2]];
+            rt2.value = date.subjs[2];
+            subj3.appendChild(rt2);
+        }
+        if(date.marks[3] == ''  || date.marks[3] == 0)
+        {
+            clear2();
+            show_hide('apDiv1');
+        }
+        if(date.marks[4] != '' && date.marks[4] != 0)
+        {
+            show_hide('apDiv2');
+            var rt3=document.createElement("option");
+            rt3.innerHTML = arr[date.subjs[3]];
+            rt3.value = date.subjs[3];
+            subj4.appendChild(rt3);
+        }
+        var rt=document.createElement("option");
+        rt.innerHTML = arr[0];
+        rt.value = 0;
+        subj1.appendChild(rt);
+        var rt1=document.createElement("option");
+        rt1.innerHTML = arr[date.subjs[1]];
+        rt1.value = date.subjs[1];
+        subj2.appendChild(rt1);
+
+        numb1.value = date.marks[1];
+        numb2.value = date.marks[2];
+        if(date.marks[3]!=0)numb3.value = date.marks[3];
+        if(date.marks[4]!=0)numb4.value = date.marks[4];
+        numb5.value = date.marks[0];
+    }
+}

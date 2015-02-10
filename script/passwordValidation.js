@@ -1,9 +1,20 @@
-/**
+﻿/**
  * Created by Cheese on 09.02.2015.
  */
 const ALL = 0;
 const PRIMARY = 1;
 const SECONDARY = 2;
+
+function passwordfield(numb)
+{
+	if (numb == 1) return document.getElementById('password1');
+	else return document.getElementById('password2');
+}
+
+function validationmessage()
+{
+	return document.getElementById('validationmessage');
+}
 
 function showAlert(message, field)
 {
@@ -11,20 +22,20 @@ function showAlert(message, field)
     {
         case ALL:
         {
-            document.getElementById('password1').style.borderColor = "red";
-            document.getElementById('password2').style.borderColor = "red";
+            passwordfield(1).style.borderColor = "red";
+            passwordfield(2).style.borderColor = "red";
             document.getElementById('validationmessage').innerHTML = message;
             break;
         }
         case PRIMARY:
         {
-            document.getElementById('password1').style.borderColor = "red";
+            passwordfield(1).style.borderColor = "red";
             document.getElementById('validationmessage').innerHTML = message;
             break;
         }
         case SECONDARY:
         {
-            document.getElementById('password2').style.borderColor = "red";
+            passwordfield(2).style.borderColor = "red";
             document.getElementById('validationmessage').innerHTML = message;
             break;
         }
@@ -35,24 +46,24 @@ function showAlert(message, field)
 
 function isPasswordsEqual()
 {
-    return (document.getElementById('password1').value != document.getElementById('password2').value);
+    return (passwordfield(1).value != passwordfield(2).value);
 }
 
 function isPasswordsNotEqualZero()
 {
-    return (document.getElementById('password2').value.length!=0 || document.getElementById('password1').value.length!=0);
+    return (passwordfield(2).value.length!=0 || passwordfield(1).value.length!=0);
 }
 
 function validatePassword()
 {
     document.getElementById('button-register').style.visibility = "visible";
-    document.getElementById('password1').style.borderColor = "#48bbb4";
-    document.getElementById('password2').style.borderColor = "#48bbb4";
+    passwordfield(1).style.borderColor = "#48bbb4";
+    passwordfield(2).style.borderColor = "#48bbb4";
     document.getElementById('validationmessage').innerHTML = "";
-    if (document.getElementById('password2').value.length < 3 && document.getElementById('password2').value.length!=0) showAlert("Пароль має містити більше ніж 3 символи", SECONDARY);
-    if (document.getElementById('password1').value.length < 3 && document.getElementById('password1').value.length!=0) showAlert("Пароль має містити більше ніж 3 символи", PRIMARY);
-    if (document.getElementById('password2').value.length > 45 && document.getElementById('password2').value.length!=0) showAlert("Пароль має містити менше ніж 45 символи", SECONDARY);
-    if (document.getElementById('password1').value.length > 45 && document.getElementById('password1').value.length!=0) showAlert("Пароль має містити менше ніж 45 символи", PRIMARY);
+    if (passwordfield(2).value.length < 3 && passwordfield(2).value.length!=0) showAlert("Пароль має містити більше ніж 3 символи", SECONDARY);
+    if (passwordfield(1).value.length < 3 && passwordfield(1).value.length!=0) showAlert("Пароль має містити більше ніж 3 символи", PRIMARY);
+    if (passwordfield(2).value.length > 45) showAlert("Пароль має містити менше ніж 45 символи", SECONDARY);
+    if (passwordfield(1).value.length > 45) showAlert("Пароль має містити менше ніж 45 символи", PRIMARY);
     if ( isPasswordsEqual() && isPasswordsNotEqualZero() ) showAlert("Паролі не співпадають", ALL);
     return false;
 }

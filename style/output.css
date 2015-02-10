@@ -1,6 +1,8 @@
 body {
     margin: 0 auto;
 }
+
+
 #container
 {
     display: table;
@@ -49,17 +51,16 @@ a.knopka:active {
 	color : black;
 }
 
-#message{
-    height: 100%;
-    width: 100%;
-    position: absolute;
-		z-index: 15000;
-    margin-top: -1px;
-    padding-top: 15%;
+#message {
     background-color: rgba(33, 33, 33, 0.8);
     color: #faf3b7;
+    height: 100%;
+    margin-top: -1px;
+    padding-top: 15%;
+    position: fixed;
     text-align: center;
-    /*font-size: 1.5em;*/
+    width: 100%;
+    z-index: 9000;
 }
 
 #content div
@@ -86,7 +87,18 @@ h1
 }
 
 
+.del{
+    cursor: pointer;
+    opacity: 0.8;
+    border: none;
+    background-color: #48bbb4;
 
+}
+
+.del:hover
+{
+    cursor: pointer;
+}
 
 
 #contract
@@ -141,20 +153,19 @@ h1
 
 
 #pricing-table {
-    margin: 0px auto 50px auto;
-    text-align: center;
-    width: 1024px; /* total computed width = 222 x 3 + 226 */
-    height: auto;
-    overflow: hidden;
+		margin: 0 0 50px 0;
+		text-align: center;
+		height: auto;
+		overflow: hidden;
+		width: 1010px;
 		display: inline-block;
 }
-#pricing-table h3{
-    font-size: 24px;
-    font-weight: 500;
-    padding: 20px;
-    padding-right: 100px;
-    padding-top: 40px;
-    margin: 5px -20px 0px -60px;
+
+#pricing-table h3 {
+		font-size: 24px;
+		font-weight: 500;
+		margin: 5px 70px 0 -20px;
+		padding: 42px 100px 20px 0;
     /*background-color: #eee;
     background-image: -moz-linear-gradient(#fff,#eee);
     background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
@@ -165,22 +176,18 @@ h1
 }
 
 #pricing-table h3 span {
-    display: block;
-    font: bold 30px/100px Georgia, Serif;
-    text-align: center;
-    color: #777;
-    background: #fff;
-    border: 5px solid whitesmoke;
-		height: 115px;
-		width: 120px;
-		margin: -75px 10px -20px 304px;
-    -moz-border-radius: 100px;
-    -webkit-border-radius: 100px;
+    background: none repeat scroll 0 0 #fff;
+    border: 5px solid #fff;
     border-radius: 100px;
-    -moz-box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset;
-    -webkit-box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset;
     box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset;
-		padding-top: 5px;
+    color: #777;
+    display: block;
+    font: bold 30px/100px Georgia,serif;
+    height: 118px;
+    margin: -78px 10px -20px 250px;
+    padding-top: 6px;
+    text-align: center;
+    width: 124px;
 }
 
 /* --------------- */
@@ -200,8 +207,4 @@ h1
     padding: 10px;
     padding-left: 10px;
     padding-right: 10px;
-}
-
-.years{
-		margin-top: 14px;
 }

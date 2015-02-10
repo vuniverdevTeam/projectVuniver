@@ -251,12 +251,13 @@ select{
     /*background-color: #464646;*/
     z-index: 1000;
 }
-#apex{
+#apex {
     background-color: whitesmoke;
-    /*background: url("image/left-2.jpg") repeat;*/
-    width: 100%;
-    margin: 0 auto;
     height: 50px;
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    z-index: 10000;
 }
 #apex-line{
     width: 100%;
@@ -677,3 +678,10 @@ opacity:0.1}
 }
 
 
+#name {
+    margin: 0 0 0 50px;
+}
+h6 {
+    padding-right: 70px;
+    text-align: center;
+}

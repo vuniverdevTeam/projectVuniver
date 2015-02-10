@@ -11,12 +11,15 @@ function getInfo(event)
     var id = checkAuth();
     if(id["isAuth"] != false)
     {
+
         var xhr = new XMLHttpRequest();
         xhr.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/plusFavourite.cpp.o', false);
-        xhr.send('Facult='+values[7]+'&Spec='+values[9]+'&userid='+id['field']);
-        event.target.innerHTML = "Збережено"
+        xhr.send('Facult='+values[7].toString()+'&Spec='+values[9].toString()+'&userid='+id['field']);
+        event.target.innerHTML = "Збережено";
+
     }
 		else {
+        document.getElementById('reg').classList.toggle('reg_open');
         if (document.getElementById('auth_close')) {
             document.getElementById('auth_close').firstChild.innerHTML = 'Вхід';
             document.getElementById('auth_close').removeAttribute('href');
