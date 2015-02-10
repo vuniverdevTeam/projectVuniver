@@ -1,23 +1,23 @@
-"use strict";
+﻿"use strict";
 var user;
 var res;
-if(document.location.search != '') {
-    var location_search = document.location.search.split('?')[1];
-    var xhrConfirm = new XMLHttpRequest();
-    xhrConfirm.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/confirm.cpp.o', false);
-    xhrConfirm.send(location_search);
-    if(xhrConfirm.responseText.indexOf('auth=') == 0) {
-        var d = new Date;
-        location_search = location_search.split('=')[1];
-        d.setTime(d.getTime() + 180*1000);
-        d = d.toUTCString();
-        document.cookie = xhrConfirm.responseText + '; expires=' + d;
-        document.location.replace("cabinet.html");
+    if(document.location.search != '') {
+        var location_search = document.location.search.split('?')[1];
+        var xhrConfirm = new XMLHttpRequest();
+        xhrConfirm.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/confirm.cpp.o', false);
+        xhrConfirm.send(location_search);
+        if(xhrConfirm.responseText.indexOf('auth=') == 0) {
+            var d = new Date;
+            location_search = location_search.split('=')[1];
+            d.setTime(d.getTime() + 180*1000);
+            d = d.toUTCString();
+            document.cookie = xhrConfirm.responseText + '; expires=' + d;
+            document.location.replace("cabinet.html");
+        }
+        else document.location.replace("index.html");
     }
-    else document.location.replace("index.html");
-}
-res = checkAuth();
-if (!res.isAuth) document.location.replace("index.html");
+    res = checkAuth();
+    if (!res.isAuth) document.location.replace("index.html");
 window.onload = function() {
     //
     var xhr5 = new XMLHttpRequest();
@@ -125,8 +125,8 @@ window.onload = function() {
         td.appendChild(document.createTextNode(resObj.C + '%'));
         tr.appendChild(td);
 
-        td = document.createElement("td");
-        td.className = "del";
+				td = document.createElement("td");
+                td.className = "del";
 
 
         td.onclick = function(event)
@@ -146,7 +146,7 @@ window.onload = function() {
 
             }
         };
-        td.innerText = "Видалити";
+        td.appendChild(document.createTextNode('Видалити'));
         tr.appendChild(td);
         document.getElementById('tbody').appendChild(tr);
         if(i >= user.arr.length) return;
@@ -191,6 +191,8 @@ var commit = function()
     var numb3 = document.getElementById('m3').value;
     var subj4 = document.getElementById('sub4').value;
     var numb4 = document.getElementById('m4').value;
+		if(subj3 == '') numb3='0';		
+		if(subj4 == '') numb4='0';
     var numb5 = document.getElementById('m5').value;
     var xhr5 = new XMLHttpRequest();
     xhr5.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/saveMarks.cpp.o', false);
@@ -201,7 +203,7 @@ var commit = function()
 
 
 function logout(){
-    var date = new Date(1);
-    document.cookie="auth=0; path=/; expires="+date.toUTCString();
+		var date = new Date(1);
+		document.cookie="auth=0; path=/; expires="+date.toUTCString();
     document.location.href = '../../../../Desktop/vuniver/index.html'
 }
