@@ -354,7 +354,11 @@ function checkAsAdded()
     var numb = parseInt(arr[0]);
     for(var r = 1; r<len; r++)
     {
+<<<<<<< HEAD
         for(var z = 1; z<=arr[0]; z++)
+=======
+        for(var z = 1; z<arr[0]; z++)
+>>>>>>> origin/master
         {
             if(table.rows[r].cells[4].innerText == arr[z] && table.rows[r].cells[5].innerText == arr[numb+z])
             {

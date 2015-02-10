@@ -1,10 +1,17 @@
 
 function restoreCabinetData(){
     what = checkAuth();
+<<<<<<< HEAD
     alert(1);
     if(what["field"]== true)
     {
 
+=======
+
+    if(what["field"] == true)
+    {
+        alert(1);
+>>>>>>> origin/master
         var xhr5 = new XMLHttpRequest();
         xhr5.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/SELECT_objects.cpp.o', false);
         var id = checkAuth();
