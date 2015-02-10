@@ -278,6 +278,7 @@ window.onload = function () {
         el2.innerHTML='Прибрати фільтри';
         show_hide('selected');
         createOptionsSave(obj, arr1, restoreData.reg);
+        if(restoreData.city == '')showNames(restoreData.reg);
     }
     else
         createOptions(obj, arr1);
@@ -399,6 +400,7 @@ function showNames(v){
             restoreVisible[1] = 1;
             show_hide('selected');
             createOptionsSave(el, arr, restoreData.city);
+            if(restoreData.Univer == '')showNames1(restoreData.city);
         }
         else
             createOptions(el, arr);
@@ -418,6 +420,7 @@ function showNames1(v) {
             restoreVisible[2] = 1;
             show_hide('selected');
             createOptionsSave(el, arr, restoreData.Univer);
+            if(restoreData.Fac == '')showNames2(restoreData.Univer);
         }
         else
             createOptions(el, arr);
@@ -436,6 +439,7 @@ function showNames2(v) {
             restoreVisible[3] = 1;
             show_hide('selected');
             createOptionsSave(el, arr, restoreData.Fac);
+            if(restoreData.Spec == '')showNames3(restoreData.Fac);
         }
         else
             createOptions(el, arr);
