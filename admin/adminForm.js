@@ -105,7 +105,7 @@ function func2() {
         return;
     }
 
-    fieldArr1.forEach(displayMessage);
+    fieldArr2.forEach(displayMessage);
 
     if (document.getElementById("popup").innerHTML == "Заповніть, будь ласка, всі поля" || document.getElementById("popup").innerHTML == "Значення введені невірно")
     {
