@@ -279,7 +279,7 @@ window.onload = function () {
         createOptionsSave(obj, arr1, restoreData.reg);
     }
     else
-    createOptions(obj, arr1);
+        createOptions(obj, arr1);
 
     //спеціальності
     xhr.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/ajax.cpp.o', false);
@@ -299,12 +299,15 @@ window.onload = function () {
             labelClick('Label');
             var el3 = document.getElementById('return-radio');
             el3.checked = true;
+            flag=1;
+            var el2 = document.getElementById('Label');
+            el2.innerHTML='Прибрати фільтри';
         }
         show_hide('selected');
         createOptionsSave(obj, specialities, restoreData.Spec)
     }
     else
-    createOptions(obj, specialities);
+        createOptions(obj, specialities);
 
     center = document.getElementsByClassName('auth_center')[0];
     if(screen.width < 400){
@@ -333,7 +336,8 @@ window.onload = function () {
         getElements('sub4');
     }
     //Проверка на наличие записи в кабинете
-
+    if(window.location.pathname == '/project%20ISM/index.html'){restoreCabinetData();}
+    checkAsAdded();
     //
 };
 
@@ -346,13 +350,14 @@ function checkAsAdded()
     var arr = xhrC.responseText.split("~");
     var table = document.getElementById("inp-table");
     var len = table.rows.length;
-    for(var r = 0; i<len; i++)
+    var numb = parseInt(arr[0]);
+    for(var r = 1; r<len; r++)
     {
-        for(var z = 0; z<arr[0]; i++)
+        for(var z = 1; z<arr[0]; z++)
         {
-            if(table.rows[r].cells[4] == arr[z] && table.rows[r].cells[5] == arr[arr[0]+z])
+            if(table.rows[r].cells[4].innerText == arr[z] && table.rows[r].cells[5].innerText == arr[numb+z])
             {
-                table.rows[r].cells[6].innerHTML = "Вибрано";
+                table.rows[r].cells[6].innerText = "Збережено";
             }
         }
     }
@@ -395,7 +400,7 @@ function showNames(v){
             createOptionsSave(el, arr, restoreData.city);
         }
         else
-        createOptions(el, arr);
+            createOptions(el, arr);
     }
 }
 function showNames1(v) {
@@ -414,7 +419,7 @@ function showNames1(v) {
             createOptionsSave(el, arr, restoreData.Univer);
         }
         else
-        createOptions(el, arr);
+            createOptions(el, arr);
     }
 }
 function showNames2(v) {
@@ -432,7 +437,7 @@ function showNames2(v) {
             createOptionsSave(el, arr, restoreData.Fac);
         }
         else
-        createOptions(el, arr);
+            createOptions(el, arr);
 
         el = document.getElementById('option4');
         removeAllChild_spec(el);
@@ -447,7 +452,7 @@ function showNames2(v) {
                 createOptionsSave(el, arr, restoreData.Spec);
             }
             else
-            createOptions(el, arr1);
+                createOptions(el, arr1);
             arr1.length = 0;
         }
     }
@@ -472,7 +477,7 @@ function showNames3(v) {
             createOptionsSave(el, arr, restoreData.Spec);
         }
         else
-        createOptions(el, arr);
+            createOptions(el, arr);
     }
 }
 function removeAllChild_city(opt1)
@@ -582,7 +587,8 @@ check = function () {
 };
 
 function restoreCabinetData(){
-    if(document.getElementById('auth_open').firstChild.innerHTML === 'Кабінет')
+    what = checkAuth();
+    if(what["field"] != undefined)
     {
         var xhr5 = new XMLHttpRequest();
         xhr5.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/SELECT_objects.cpp.o', false);
@@ -611,7 +617,6 @@ function restoreCabinetData(){
         while(subj4.childNodes.length > 0){
             subj4.removeChild(subj4.childNodes[subj4.childNodes.length-1]);
         }
-        alert(date.marks[4]);
         if(date.marks[3] != '' && date.marks[3] != 0)
         {
             if(date.marks[4] == '' || date.marks[4] == 0)
