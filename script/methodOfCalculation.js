@@ -26,6 +26,7 @@ window.onload = function () {
     }
     var ch = checkAuth();
     if(ch.isAuth) {
+				document.getElementById('name').appendChild(document.createTextNode('Ви увійшли як: ' + ch.data));
         if(document.getElementById('auth_open')) {
             document.getElementById('auth_open').firstChild.innerHTML = 'Кабінет';
             document.getElementById('auth_open').href = '../project ISM/cabinet.html';
