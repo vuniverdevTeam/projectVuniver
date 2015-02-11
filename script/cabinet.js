@@ -11,7 +11,7 @@ var res;
             location_search = location_search.split('=')[1];
             d.setTime(d.getTime() + 180*1000);
             d = d.toUTCString();
-            document.cookie = xhrConfirm.responseText + '; expires=' + d;
+            document.cookie = xhrConfirm.responseText + '; path=/; expires=' + d;
             document.location.replace("cabinet.html");
         }
         else document.location.replace("index.html");
