@@ -327,7 +327,8 @@ window.onload = function () {
     if(window.restoreData !== undefined && restoreData.Univer != '')showNames1(obj2.value);
     if(window.restoreData !== undefined && restoreData.Fac != '')showNames2(obj3.value);
     if(window.restoreData !== undefined && restoreData.Spec != '' && obj4.value != '')showNames3(obj4.value);
-    if(window.restoreData !== undefined && restoreData.Spec != '')showNames3(0);
+    if(window.restoreData !== undefined && restoreData.Spec != '' && obj4.value == '')showNames3(0);
+    if(window.restoreData !== undefined && restoreData.Spec == '' && obj4.value != '')showNames3(obj4.value);
     if(window.restoreData !== undefined && window.restoreData.subjs[0] !== undefined){
         clear();
         getElementsSave();
