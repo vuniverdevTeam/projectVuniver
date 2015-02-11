@@ -306,10 +306,13 @@ window.onload = function () {
             el2.innerHTML='Прибрати фільтри';
         }
         show_hide('selected');
-        createOptionsSave(obj, specialities, restoreData.Spec)
+        createOptionsSave(obj, specialities, restoreData.Spec);
     }
     else
-        createOptions(obj, specialities);
+    {
+        if(obj.value == '')createOptions(obj, specialities);
+    }
+
 
     center = document.getElementsByClassName('auth_center')[0];
     if(screen.width < 400){
@@ -444,26 +447,27 @@ function showNames2(v) {
         else
             createOptions(el, arr);
 
-        el = document.getElementById('option4');
-        removeAllChild_spec(el);
+        var el2 = document.getElementById('option4');
+        removeAllChild_spec(el2);
         for(i = 0; i < arr.length; i += 2){
             xhr.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/ajax.cpp.o', false);
             xhr.send('spec=' + arr[i]);
             arr1 = eval('(' + xhr.responseText + ')');
-            if(restoreData.Spec != '' && restoreVisible[4] == 0)
+            if(window.restoreData !== undefined && restoreData.Spec != '' && restoreVisible[4] == 0)
             {
                 restoreVisible[4] = 1;
                 show_hide('selected');
-                createOptionsSave(el, arr, restoreData.Spec);
+                createOptionsSave(el2, arr1, restoreData.Spec);
+                break;
             }
             else
-                createOptions(el, arr1);
-            arr1.length = 0;
+                createOptions(el2, arr1);
         }
     }
     else {
         removeAllChild_spec(document.getElementById('option4'));
         createOptions(document.getElementById('option4'), specialities);
+
     }
 }
 function showNames3(v) {
@@ -482,7 +486,42 @@ function showNames3(v) {
             createOptionsSave(el, arr, restoreData.Spec);
         }
         else
+        if(window.restoreData !== undefined && restoreData.Spec != '' && restoreVisible[4] == 0)
+        {
+            restoreVisible[4] = 1;
+            show_hide('selected');
+            createOptionsSave(el, arr, restoreData.Spec);
+        }
+        else
+        {
             createOptions(el, arr);
+        }
+    }
+    else
+    if(option2.value >=1){
+        var arr, arr1, el = document.getElementById('option3');
+        var xhr = new XMLHttpRequest(), i;
+        xhr.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/ajax.cpp.o', false);
+        xhr.send('fac=' + option2.value);
+        arr = eval('(' + xhr.responseText + ')');
+
+        var el2 = document.getElementById('option4');
+        removeAllChild_spec(el2);
+        for(i = 0; i < arr.length; i += 2){
+            xhr.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/ajax.cpp.o', false);
+            xhr.send('spec=' + arr[i]);
+            arr1 = eval('(' + xhr.responseText + ')');
+            if(window.restoreData !== undefined && restoreData.Spec != '' && restoreVisible[4] == 0)
+            {
+                restoreVisible[4] = 1;
+                show_hide('selected');
+                createOptionsSave(el2, arr1, restoreData.Spec);
+                break;
+            }
+            else
+                createOptions(el2, arr1);
+            arr1.length = 0;
+        }
     }
 }
 function removeAllChild_city(opt1)
