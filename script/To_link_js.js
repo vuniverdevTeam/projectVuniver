@@ -301,17 +301,16 @@ window.onload = function () {
             labelClick('Label');
             var el3 = document.getElementById('return-radio');
             el3.checked = true;
-            flag=1;
+            flag = 1;
             var el2 = document.getElementById('Label');
             el2.innerHTML='Прибрати фільтри';
         }
         show_hide('selected');
         createOptionsSave(obj, specialities, restoreData.Spec);
+        if(restoreData.city == '')showNames(restoreData.reg);
     }
     else
-    {
-        if(obj.value == '')createOptions(obj, specialities);
-    }
+        createOptions(obj, specialities);
 
 
     center = document.getElementsByClassName('auth_center')[0];
@@ -327,8 +326,8 @@ window.onload = function () {
     if(window.restoreData !== undefined && restoreData.city != '')showNames(obj1.value);
     if(window.restoreData !== undefined && restoreData.Univer != '')showNames1(obj2.value);
     if(window.restoreData !== undefined && restoreData.Fac != '')showNames2(obj3.value);
-    if(window.restoreData !== undefined && restoreData.Spec != '')showNames3(obj4.value);
-
+    if(window.restoreData !== undefined && restoreData.Spec != '' && obj4.value != '')showNames3(obj4.value);
+    if(window.restoreData !== undefined && restoreData.Spec != '')showNames3(0);
     if(window.restoreData !== undefined && window.restoreData.subjs[0] !== undefined){
         clear();
         getElementsSave();
@@ -458,7 +457,6 @@ function showNames2(v) {
                 restoreVisible[4] = 1;
                 show_hide('selected');
                 createOptionsSave(el2, arr1, restoreData.Spec);
-                break;
             }
             else
                 createOptions(el2, arr1);
@@ -498,11 +496,11 @@ function showNames3(v) {
         }
     }
     else
-    if(option2.value >=1){
+    if(document.getElementById('option2').value >=1){
         var arr, arr1, el = document.getElementById('option3');
         var xhr = new XMLHttpRequest(), i;
         xhr.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/ajax.cpp.o', false);
-        xhr.send('fac=' + option2.value);
+        xhr.send('fac=' + document.getElementById('option2').value);
         arr = eval('(' + xhr.responseText + ')');
 
         var el2 = document.getElementById('option4');
@@ -511,12 +509,10 @@ function showNames3(v) {
             xhr.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/ajax.cpp.o', false);
             xhr.send('spec=' + arr[i]);
             arr1 = eval('(' + xhr.responseText + ')');
-            if(window.restoreData !== undefined && restoreData.Spec != '' && restoreVisible[4] == 0)
+            if(window.restoreData !== undefined && restoreData.Spec != '')
             {
-                restoreVisible[4] = 1;
                 show_hide('selected');
                 createOptionsSave(el2, arr1, restoreData.Spec);
-                break;
             }
             else
                 createOptions(el2, arr1);
