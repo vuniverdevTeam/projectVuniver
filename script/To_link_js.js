@@ -407,6 +407,14 @@ function showNames(v){
         }
         else
             createOptions(el, arr);
+
+    }
+    else
+    {
+        var els = document.getElementById('option4');
+        if(els.value == '')createOptions(els, specialities);
+        else
+        createOptionsSave(els, specialities, els.value);
     }
 }
 function showNames1(v) {
@@ -427,6 +435,13 @@ function showNames1(v) {
         }
         else
             createOptions(el, arr);
+    }
+    else
+    {
+        var els = document.getElementById('option4');
+        if(els.value == '')createOptions(els, specialities);
+        else
+            createOptionsSave(els, specialities, els.value);
     }
 }
 function showNames2(v) {
