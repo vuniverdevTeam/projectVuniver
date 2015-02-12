@@ -142,7 +142,11 @@ window.onload = function() {
                 var xhr = new XMLHttpRequest();
                 xhr.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/deleteFav.cpp.o', false);
                 xhr.send('Facult='+values[5]+'&Spec='+values[7]+'&userid='+id['field']);
-                event.target.innerHTML = "Видалено";
+
+                if(confirm("Ви впевнені, що бажаєте видалити запис?"))
+                {
+                    event.target.parentNode.parentNode.parentNode.deleteRow(this.parentNode.rowIndex);
+                }
 
             }
         };
