@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Govnocoded by Arsen on 20.01.2015.
  * Modified by AlexSan;
  */
@@ -21,7 +21,7 @@ function validate(obj, i, arr)
 
 function displayMessage(obj,i,arr){
     if (obj.style.borderColor == "red") {
-        document.getElementById("popup").innerHTML = "Значення введені невірно";
+        document.getElementById("popup").innerHTML = "Значення введені невірно. <br/>Значення має бути у межах від 1 до 200";
         return false;
     }
 }
@@ -40,7 +40,7 @@ function func() {
 
     fieldArr1.forEach(displayMessage);
 
-    if (document.getElementById("popup").innerHTML == "Заповніть, будь ласка, всі поля" || document.getElementById("popup").innerHTML == "Значення введені невірно")
+    if (document.getElementById("popup").innerHTML == "Заповніть, будь ласка, всі поля" || document.getElementById("popup").innerHTML == "Значення введені невірно. <br/>Значення має бути у межах від 1 до 200")
     {
         showPopup();
         return false;
@@ -76,7 +76,7 @@ function func() {
                     document.getElementsByName("M4")[0].style.borderColor = "red";
                 }
             }
-            document.getElementById("popup").innerHTML = "Значення введені невірно";
+            document.getElementById("popup").innerHTML = "Значення введені невірно. <br/>Значення має бути у межах від 1 до 200";
             showPopup();
             document.getElementById('loading').style.visibility='hidden';
         }
@@ -107,7 +107,7 @@ function func2() {
 
     fieldArr2.forEach(displayMessage);
 
-    if (document.getElementById("popup").innerHTML == "Заповніть, будь ласка, всі поля" || document.getElementById("popup").innerHTML == "Значення введені невірно")
+    if (document.getElementById("popup").innerHTML == "Заповніть, будь ласка, всі поля" || document.getElementById("popup").innerHTML == "Значення введені невірно. <br/>Значення має бути у межах від 1 до 200")
     {
         showPopup();
         return false;
@@ -145,7 +145,7 @@ function func2() {
                 }
             }
             switchFillerValue(1);
-            document.getElementById("popup").innerHTML = "Значення введені невірно";
+            document.getElementById("popup").innerHTML = "Значення введені невірно. <br/>Значення має бути у межах від 1 до 200";
             showPopup();
             document.getElementById('loading').style.visibility='hidden';
         }
