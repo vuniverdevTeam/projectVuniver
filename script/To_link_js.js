@@ -258,7 +258,17 @@ window.onload = function () {
         }
     }
 
-
+		if(window.restoreData !== undefined && window.restoreData.subjs[0] !== undefined){
+        clear();
+        getElementsSave();
+    }
+    else
+    {
+        getElements('sub1');
+        getElements('sub2');
+        getElements('sub3');
+        getElements('sub4');
+    }
     labelClick('Label');
     //області:
     var arr1;
@@ -329,17 +339,7 @@ window.onload = function () {
     if(window.restoreData !== undefined && restoreData.Spec != '' && obj4.value != '')showNames3(obj4.value);
     if(window.restoreData !== undefined && restoreData.Spec != '' && obj4.value == '')showNames3(0);
     if(window.restoreData !== undefined && restoreData.Spec == '' && obj4.value != '')showNames3(obj4.value);
-    if(window.restoreData !== undefined && window.restoreData.subjs[0] !== undefined){
-        clear();
-        getElementsSave();
-    }
-    else
-    {
-        getElements('sub1');
-        getElements('sub2');
-        getElements('sub3');
-        getElements('sub4');
-    }
+    
     //Проверка на наличие записи в кабинете
     if(window.location.pathname == '/project%20ISM/index.html'){restoreCabinetData();}
     checkAsAdded();
