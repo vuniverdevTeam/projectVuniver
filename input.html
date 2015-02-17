@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html style="height: 100%;">
 <head lang="en">
     <meta charset="UTF-8">
     <title>input</title>
 
-    <!--<link rel="stylesheet" type="text/css" href="../project ISM/style/style_input.css">
+    <link rel="stylesheet" type="text/css" href="../project ISM/style/style_input.css">
     <link rel="stylesheet" type="text/css" href = "../project ISM/style/output.css">
-		<link rel="stylesheet" type="text/css" href="../project ISM/style/auth.css"/>
+	<link rel="stylesheet" type="text/css" href="../project ISM/style/auth.css"/>
     <link rel="stylesheet" type="text/css" href="../project ISM/style/style-reg.css">
     <link rel="stylesheet" type="text/css" href="../project ISM/style/validator.css"/>
 
@@ -223,8 +223,8 @@
                 <ul>
                     <li style="text-align: left;">
                         <b style="float: left; clear: both;">~U~</b><br/>
-                        <b style="float: left; clear: both;">~F~</b><br/>
-                        <b style="float: left; clear: both;">~S~</b><br/>
+                        <b id = "blyad" style="float: left; clear: both;">~F~</b><br/>
+                        <b id  = "suka" style="float: left; clear: both;">~S~</b><br/>
 												<div style="clear: both;"></div>
                     </li>
                     <li>Ваш вступний бал: <b>~M~</b></li>
@@ -286,8 +286,8 @@
                     </li>
                 </ul>
             </div >
+            <input type="button" id = "saveInput" onclick = "lol(); this.value='Збережено'" class="button-calculate" value="Зберегти у кабінет"/>
         </div>
-        <input type = "submit" class="button-calculate" value="Додати у кабінет"/>
     </div>
     <!--<div><h1 style="text-align: center">Ймовірності вступу в університети</h1></div>-->
 <script type="text/javascript">
@@ -299,6 +299,22 @@
         if(document.getElementById('m4').value != '') document.getElementById('sub4').required = 'required';
         else document.getElementById('sub4').removeAttribute('required');
     };
+    function cabPlus()
+    {
+        var what = checkAuth();
+        if(what["field"] == undefined) {
+            show_hideUn('saveInput');
+        }
+        else
+        show_hide('saveInput');
+    }
+	function lol()
+	{
+		var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/plusFavourite.cpp.o', false);
+		var id = checkAuth();
+        xhr.send('mark=-228'+'&id=' + id["field"]+'&spec=' + restoreData.Spec + '&fuc='+ restoreData.Fac);
+	}
 </script>
 </body>
 </html>
