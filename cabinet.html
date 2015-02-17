@@ -11,8 +11,14 @@
     <link rel="stylesheet" type="text/css" href="../project ISM/style/cabinet.css"/>
     <link rel="stylesheet" type="text/css" href="../project ISM/style/style_input.css"/>
     <link rel="stylesheet" type="text/css" href="../project ISM/style/output.css"/>
+    <link rel="stylesheet" type="text/css" href="../project ISM/style/message.css"/>
 </head>
 <body style="min-width: 1215px; height: 100%;">
+<div id="mess1" class="message">
+    <div id = "text-message">Ви впевнені, що бажаєте видалити запис?</div>
+    <input id = "OK" style="margin-right: 1px;" type="submit" class="button-calculate" value="Так" onclick="dellSave();"/>
+    <input id="Continue" style="margin-right: 1px;" type="submit" class="button-calculate" value="Відмінити" onclick="breakDell();"/>
+</div>
 <div id="apex">
     <div id="open-tab">
         <h2 style="text-align: center; color: #3ba09a; margin: 0;">Ваш кабінет</h2>
@@ -26,9 +32,9 @@
                         <div class="wrapper">
                             <ul>
                                 <li><div id="open1"></div></li>
-                                <li id="proc"><a href="index.html" onclick="backPage();"><span>Повернутись назад</span></a></li>
+                                <li id="proc"><a onclick="backPage(); return false;"><span>Повернутись назад</span></a></li>
                                 <li><div class="menu-line"></div></li>
-                                <li id="regi"><a href="index.html" onclick="logout(); backPage();"><span>Вийти</span></a></li>
+                                <li id="regi"><a onclick="logout(); backPage(); return false;"><span>Вийти</span></a></li>
                                 <li><div id="closse1"></div></li>
                             </ul>
                         </div>
