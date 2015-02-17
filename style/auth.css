@@ -59,18 +59,11 @@ div.input input{
     border: 1px solid #999999;
     border-radius: 7px;
 }
-/*#form-enter input[type="submit"]{
-    clear: both;
-    color: rgba(0, 27, 151, 0.95);
-    background-color: #E5EAEA;
-    border: 1px solid #999999;
-    border-radius: 6px;
-    width: 56px;
-    /*margin-left: 170px;*/
-    /*float: right;
+#reg_link{
+		font-size:14px;
+		text-decoration:underline;
+		color:blue;
 }
-#form-enter input[type="submit"]:hover{
-    cursor: pointer;
-    text-decoration: underline;
+#reg_link:hover{
+		cursor:hand;
 }
-*/
