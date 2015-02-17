@@ -96,8 +96,6 @@ select{
     outline: red solid 1px;
 }
 .button-calculate{
-    clear: both;
-    font-size: 14px;
     color: #ffffff;
     float: right;
     padding: 8px;
@@ -684,4 +682,10 @@ opacity:0.1}
 h6 {
     padding-right: 70px;
     text-align: center;
+}
+#pricing-table .button-calculate{
+    padding-right: 20px;
+    padding-left: 20px;
+    margin: 30px auto;
+    float: none;
 }
