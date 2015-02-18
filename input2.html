@@ -239,6 +239,8 @@
         <a  id = "loadMore" class="knopkaOut" style="float:left; clear:both;">Відобразити ще 10</a>
     </div>
 </div>
+		<!--<script src="../project ISM/script/tablesorter/jquery.tablesorter.js"></script>
+    <script src="../project ISM/script/tablesorter/tables.js"></script>--><!-- Sorting-->
 <script type = "text/javascript">
 		document.getElementById('m3').onchange = function() {
         if(document.getElementById('m3').value != '') document.getElementById('sub3').required = 'required';
@@ -258,10 +260,10 @@
     $(document).ready(function () {
         size_li = $("#myList tr").size();
         x=10;
-        $('#myList tr').not(':lt('+x+')').hide();
+        $('#myList tr').not(':lt('+x+')').attr("hidden", "hidden");
         $('#loadMore').click(function () {
             x= (x+10 <= size_li) ? x+10 : size_li;
-            $('#myList tr:lt('+x+')').show();
+            $('#myList tr:lt('+x+')').removeAttr("hidden");
         });
         $('#showLess').click(function () {
             x=(x-10<0) ? 10 : x-10;
