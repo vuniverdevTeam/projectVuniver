@@ -97,13 +97,16 @@ select{
 }
 .button-calculate{
     color: #ffffff;
-    /*float: right;*/
+    float: right;
     padding: 8px;
     margin: 10px 2px 10px 10px;
     border-radius: 7px;
     background-color: #48bbb4;
     box-shadow: none;
     border: 0;
+}
+.button-calculate[value="Вхід"]{
+    float: none;
 }
 .button-calculate:hover{
     cursor: pointer;
