@@ -221,7 +221,7 @@ function getElementsSave()
     numb5.value = restoreData.marks[0];
 }
 
-
+var ch;
 window.onload = function () {
     document.getElementById('message').hidden = "hidden";
 
@@ -242,7 +242,7 @@ window.onload = function () {
         class: 'reg_open'
     });
 
-    var ch = checkAuth();
+    ch = checkAuth();
     if(ch.isAuth) {
         document.getElementById('name').appendChild(document.createTextNode('Ви увійшли як: ' + ch.data));
         if(document.getElementById('auth_open')) {
@@ -341,14 +341,15 @@ window.onload = function () {
     if(window.restoreData !== undefined && restoreData.Spec == '' && obj4.value != '')showNames3(obj4.value);
     
     //Проверка на наличие записи в кабинете
-    if(window.location.pathname == '/project%20ISM/index.html'){restoreCabinetData();}
-    checkAsAdded();
+    if(location.pathname == '/project%20ISM/index.html' || location.pathname == '/project%20ISM/'){restoreCabinetData();}
+    if(obj.value != '' && obj1.value != '' && obj2.value != '' && obj3.value != '' && obj4.value != ''){cabPlus();}
+    if(obj.value == '' || obj1.value == '' || obj2.value == '' || obj3.value == '' || obj4.value == '')checkAsAdded();
     //
 };
 
 function checkAsAdded()
 {
-    var id = checkAuth();
+    var id = ch;
     var xhrC = new XMLHttpRequest();
     xhrC.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/checkAsAdded.cpp.o', false);
     xhrC.send("id="+id['field']);
@@ -637,12 +638,12 @@ check = function () {
 };
 
 function restoreCabinetData(){
-    what = checkAuth();
+    var what = ch;
     if(what["field"] != undefined)
     {
         var xhr5 = new XMLHttpRequest();
         xhr5.open('POST', 'http://alex.inet-tech.org.ua/cgi-bin/SELECT_objects.cpp.o', false);
-        var id = checkAuth();
+        var id = ch;
         xhr5.send(id['field']);
         var date = eval('('+xhr5.responseText+')');//Вот тут лежат оценки и предметы в таком порядке: атестат(оценка), укр мова(оценка), предмет2, оценка2, предмет3,оценка3, предмет4, оценка4.
         clear();
