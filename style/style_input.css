@@ -104,6 +104,7 @@ select{
     background-color: #48bbb4;
     box-shadow: none;
     border: 0;
+		clear: both;
 }
 .button-calculate[value="Вхід"]{
     float: none;
