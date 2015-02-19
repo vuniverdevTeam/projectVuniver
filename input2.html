@@ -70,7 +70,7 @@
         </form>
     </div>
 </div>
-<div id="message" hidden="hidden">
+<div id="message">
     <h2>Зачекайте, поки будуть готові результати</h2>
 			<h4>Середній час обчислення 8с</h4>
 			<div id="facebookG">
@@ -220,12 +220,12 @@
     <table class="table table-bordered table-striped" id = "inp-table">
         <thead>
         <tr>
-            <th>№</th>
-            <th class="budg">Бюджет</th>
-            <th class="contr">Контракт</th>
-            <th>Університет</th>
-            <th>Факультет</th>
-            <th>Спеціальність</th>
+            <th data-type="number">№</th>
+            <th data-type="number" class="budg">Бюджет</th>
+            <th data-type="number" class="contr">Контракт</th>
+            <th data-type="string">Університет</th>
+            <th data-type="string">Факультет</th>
+            <th data-type="string">Спеціальність</th>
         </tr>
         </thead>
         <a name="start"></a>
@@ -241,6 +241,7 @@
 </div>
 		<!--<script src="../project ISM/script/tablesorter/jquery.tablesorter.js"></script>
     <script src="../project ISM/script/tablesorter/tables.js"></script>--><!-- Sorting-->
+		<script src="../project ISM/script/tablesorter/sort.js"></script>
 <script type = "text/javascript">
 		document.getElementById('m3').onchange = function() {
         if(document.getElementById('m3').value != '') document.getElementById('sub3').required = 'required';
@@ -265,12 +266,8 @@
             x= (x+10 <= size_li) ? x+10 : size_li;
             $('#myList tr:lt('+x+')').removeAttr("hidden");
         });
-        $('#showLess').click(function () {
-            x=(x-10<0) ? 10 : x-10;
-            $('#myList tr').not(':lt('+x+')').hide();
-        });
-
     });
 </script>
+
 </body>
 </html>
