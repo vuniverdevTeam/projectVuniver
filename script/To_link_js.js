@@ -223,10 +223,7 @@ function getElementsSave()
 
 var ch;
 window.onload = function () {
-    document.getElementById('message').hidden = "hidden";
-
-
-
+    
     auth = new Auth_Menu({
         elem: document.getElementById('auth'),
         id1: document.getElementById('login'),
@@ -345,6 +342,7 @@ window.onload = function () {
     if(obj.value != '' && obj1.value != '' && obj2.value != '' && obj3.value != '' && obj4.value != ''){cabPlus();}
     if(obj.value == '' || obj1.value == '' || obj2.value == '' || obj3.value == '' || obj4.value == '')checkAsAdded();
     //
+		document.getElementById('message').hidden = "hidden";
 };
 
 function checkAsAdded()
