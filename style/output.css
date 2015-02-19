@@ -1,7 +1,13 @@
 body {
     margin: 0 auto;
+		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
-
+@font-face {
+    font-family: "FontAwesome";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.0.3") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff?v=4.0.3") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.0.3") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular") format("svg");
+}
 
 #container
 {
@@ -207,4 +213,25 @@ h1
     padding: 10px;
     padding-left: 10px;
     padding-right: 10px;
+}
+#wrapper2 thead {
+    cursor: pointer;
+		white-space: pre;
+}
+#wrapper2 thead tr th:hover {
+    background-color: #f1f1f1;
+}
+.table-hover > tbody > tr:hover > td, .table-hover > tbody > tr:hover > th {
+    background-color: #f1f1f1;
+}
+.fa {
+    /*display: inline-block;*/
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+}
+.fa-sort:before {
+    content: "";
+		box-sizing: border-box;
 }
